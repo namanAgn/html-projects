@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Convertor</title>
+    <!-- Loading 'Poppins' font from Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            /* Aliging the main div, 'cards', in the center of the viewport.*/
+            font-family: "Poppins", "sans-serif";
+        }
+
+        h1 {
+            color: white;
+        }
+        
+        input:focus,
+        select:focus {
+            outline: none; /* Removes the little black border that appears when you click on an input and select element */
+        }
+
+        .card {
+            background: linear-gradient(45deg, #FF9A8B, #FF8566, #FFB066); /* Applying a gradient to 'card' */
+            border-radius: 25px;
+            padding: 15px;
+        }
+        .select select { /* Targets the 'select' elements in the 'select' div */
+            background: none;
+            border: solid 3px white;
+            padding: 10px;
+            font-size: 22px;
+            border-radius: 15px;
+            color: white;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none; /* For most browsers */
+            font-weight: 600
+        }
+        .select select:hover {
+            cursor: pointer;
+        }
+        .placeholder {
+            color: white;
+            font-weight: 600
+        }
+        .select option {
+            background-color: white;
+            color: black;
+            font-weight: 600
+        }
+        .select {
+            display: flex;
+            align-items: center;
+        }
+        .temperature-input {
+            background: none;
+            border: solid 3px white;
+            color: white;
+            padding: 10px;
+            font-size: 22px;
+            border-radius: 15px;
+            width: 150px;
+        }
+        .temperature-input::placeholder {
+            color: white;
+        }
+        .result {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 22px;
+            justify-content: center;
+        }
+        .error {
+            background-color: white;
+            padding: 3px;
+            text-align: center;
+            color: red;
+            display: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Temperature Covertor</h1>
+        <div class="select">
+            <select id="temperature-selector-1" title="bruh">
+                <option class="placeholder">...</option>
+                <option class="celcius-1">Celcius</option>
+                <option class="fahrenheit-1">Fahrenheit</option>
+                <option class="kelvin-1">Kelvin</option>
+            </select>
+                                                                                                                                               
+            <img src="right_arrow.png" alt='a tasty image'>
+
+            <select id="temperature-selector-2" title="bruh">
+                <option class="placeholder">...</option>
+                <option class="celcius-1">Celcius</option>
+                <option class="fahrenheit-1">Fahrenheit</option>
+                <option class="kelvin-1">Kelvin</option>
+            </select>
+        </div>
+
+        <input class="temperature-input" placeholder="enter the value here">
+        
+        <div class="result">
+            <h2 class="input-display">..</h2>
+            <img src="equal_to.png" alt='a tasty image' style="width: 50px; margin: 30px;">
+            <h2 class="output-display">..</h2>
+        </div>
+        <h3 class="error"></h3>
+    </div>
+    <script>
+        const selector1 = document.getElementById('temperature-selector-1')
+        const selector2 = document.getElementById('temperature-selector-2')
+
+        const input = document.querySelector('.temperature-input')
+
+        const inputDisplay = document.querySelector('.input-display')
+        const outputDisplay = document.querySelector('.output-display')
+
+        const error = document.querySelector('.error')
+
+        input.addEventListener("input", () => {
+            const value1 = selector1.value;
+            const value2 = selector2.value;
+
+            if (isNaN(parseFloat(input.value))) {
+                error.style.display = 'block'
+                error.innerHTML = 'Please enter a valid number!'
+                inputDisplay.innerHTML = 'ERROR'
+                outputDisplay.innerHTML = 'ERROR'
+                errorInterval = setInterval(() => {
+                    window.location.reload();
+                }, 1500)
+            } else {
+                if (value1 === 'Celcius') {
+                    input.placeholder = 'enter the celcius value here'
+                    inputDisplay.innerHTML = input.value + '°C'
+                    if (value2 === 'Celcius') {
+                        error.style.display = 'block'
+                        error.innerHTML = 'Cannot convert to the same unit!'
+                        inputDisplay.innerHTML = 'ERROR'
+                        outputDisplay.innerHTML = 'ERROR'
+                        errorInterval = setInterval(() => {
+                            window.location.reload();
+                        }, 1500)
+                    } else if (value2 === 'Fahrenheit') {
+                        Fvalue = Math.round(input.value * 9/5 + 32) + '°F'
+                        outputDisplay.innerHTML = Fvalue
+                    } else if (value2 === 'Kelvin') {
+                        Kvalue = Math.round(parseInt(input.value, 10) + 273.15) + 'K'
+                        outputDisplay.innerHTML = Kvalue
+                    }
+                }
+                if (value1 === 'Fahrenheit') {
+                    input.placeholder = 'enter the fahrenheit value here'
+                    inputDisplay.innerHTML = input.value + '°F'
+                    if (value2 === 'Fahrenheit') {
+                        error.style.display = 'block'
+                        error.innerHTML = 'Cannot convert to the same unit!'
+                        inputDisplay.innerHTML = 'ERROR'
+                        outputDisplay.innerHTML = 'ERROR'
+                        errorInterval = setInterval(() => {
+                            window.location.reload();
+                        }, 1500)
+                    } else if (value2 === 'Celcius') {
+                        Cvalue = Math.round((parseInt(input.value, 10) - 32) * 5/9) + '°C'
+                        outputDisplay.innerHTML = Cvalue;
+                    } else if (value2 === 'Kelvin') {
+                        Kvalue = Math.round((parseInt(input.value, 10) - 32) * 5/9 + 273.15) + 'K'
+                        outputDisplay.innerHTML = Kvalue;
+                    }
+                }
+                if (value1 === 'Kelvin') {
+                    input.placeholder = 'enter the kelvin value here'
+                    inputDisplay.innerHTML = input.value + 'K'
+                    if (value2 === 'Kelvin') {
+                        error.style.display = 'block'
+                        error.innerHTML = 'Cannot convert to the same unit!'
+                        inputDisplay.innerHTML = 'ERROR'
+                        outputDisplay.innerHTML = 'ERROR'
+                        errorInterval = setInterval(() => {
+                            window.location.reload();
+                        }, 1500)
+                    } else if (value2 === 'Celcius') {
+                        Cvalue = Math.round(parseInt(input.value, 10)- 273.15) + '°C'
+                        outputDisplay.innerHTML = Cvalue;
+                    } else if (value2 === 'Fahrenheit') {
+                        Fvalue = Math.round(((parseInt(input.value, 10) - 273.15) * 9/5) + 32) + '°F'
+                        outputDisplay.innerHTML = Fvalue;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

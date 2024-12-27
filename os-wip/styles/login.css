@@ -1,0 +1,74 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgb(134, 175, 237);
+  font-family: Roboto Mono;
+  transition: filter 1s;
+}
+.background-2,
+.background-1 {
+  background-color: rgb(3, 187, 3);
+  padding-bottom: 900px;
+  padding-left: 500px;
+  padding-right: 100px;
+  margin-top: 500px;
+  margin-right: 900px;
+  margin-left: -1000px;
+  border-radius: 300px;;
+}
+.background-2 {
+  background-color: rgb(16, 199, 16);
+  position: relative;
+  top: -1300px;
+  left: 1300px;
+  z-index: 2;
+}
+.cloud-2,
+.cloud-1 {
+  position: relative;
+  top: -2700px;
+  background-color: white;
+  border-radius: 300px;
+  margin-right: 100px;
+  margin-left: 1300px;
+  padding-bottom: 150px;
+}
+.cloud-2 {
+  position: relative;
+  background-color: white;
+  top: -2900px;
+  left: 120px;
+  padding-bottom: 100px;
+  margin-right: 300px;
+}
+.main {
+  text-align: center;
+  position: relative;
+  top: -3000px;
+}
+.time-heading {
+  font-size: 115px;
+  color: white;
+}
+.date-heading {
+  position: relative;
+  top: -80px;
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}
+.login-button {
+  font-size: 25px;
+  background-color: rgb(134, 175, 237);
+  color: white;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+}

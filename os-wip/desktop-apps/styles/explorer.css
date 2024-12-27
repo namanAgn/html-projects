@@ -1,0 +1,176 @@
+body, html {
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+}
+.taskbar-color {
+  background-color:  rgb(25,25,25);
+  padding-bottom: 60px;
+  margin-top: 855px;
+}
+.file-explorer-button {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 500px;
+}
+.notepad-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 520px;
+}
+.settings-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 540px;
+}
+.task-manager-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 560px;
+}
+.calendar-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 580px;
+}
+.broswer-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 580px;
+}
+.title-bar-color {
+  border-bottom-style:solid;
+  margin-top: 30px;
+  padding-bottom: 15px;
+}
+.taskbar {
+  position: relative;
+  bottom: 1905px;
+}
+.taskbar-icons {
+  position: relative;
+  left: 150px;
+  top: 40px;
+}
+.close-window {
+  position: relative;
+  border: none;
+  background-color: white;
+  left: 1825px;
+  bottom: 147px;
+  padding: 7px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.side-container-color {
+  position: relative;
+  bottom: 145px;
+  height: 820px;
+  width: 400px;
+  margin-right: 1400px;
+  border-right-style: solid;
+  border-bottom-style: solid;
+}
+.title-bar-icon {
+  height: 40px;
+  position: relative;
+  bottom: 45px;
+  left: 10px;
+}
+.title-bar-name {
+  position: relative;
+  bottom : 92.5px;
+  left: 55px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.thispc {
+  position: relative; 
+  bottom: 950px;
+  left: 10px;
+}
+.thispc-logo {
+  width: 100px
+}
+.thispc-name {
+  position: relative;
+  bottom: 100px;
+  left: 115px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.downloads {
+  position: relative;
+  bottom: 1020px;
+  left: 20px;
+}
+.download-logo {
+  width: 100px
+}
+.downloads-name {
+  position: relative;
+  bottom: 90px;
+  left: 115px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.pictures {
+  position: relative;
+  bottom: 1070px;
+  left: 20px;
+}
+.pictures-logo {
+  width: 100px
+}
+.pictures-name {
+  position: relative;
+  bottom: 90px;
+  left: 115px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.videos {
+  position: relative;
+  bottom: 1130px;
+  left: 20px;
+}
+.videos-logo {
+  width: 100px
+}
+.videos-name {
+  position: relative;
+  bottom: 90px;
+  left: 115px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.documents {
+  position: relative;
+  bottom: 1180px;
+  left: 20px;
+}
+.documents-logo {
+  width: 100px
+}
+.documents-name {
+  position: relative;
+  bottom: 90px;
+  left: 115px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.text-main {
+  text-align: center;
+  position: relative;
+  top: -2500px;
+  font-weight: bold;
+  font-size: 25px;
+}

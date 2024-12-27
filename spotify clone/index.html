@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Spotify</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins";
+            height: 100vh;
+            background-color: rgb(42, 42, 42);
+        }
+        .header {
+            background-color: #333333;
+            padding: 7.5px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .logo {
+            width: 60px;
+            border-radius: 25%;
+        }
+        input {
+            font-family: "Poppins";
+        }
+        .search {
+            background-color: rgb(92, 223, 140);
+            width: fit-content;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .search-holder {
+            display: flex;
+            justify-content: center;
+        }
+        .search-input {
+            background-color: rgb(92, 223, 140);
+            border: white 2px solid;
+            padding: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 10px;
+            width: 200px;
+        }
+        .search-input::placeholder {
+            color: white;
+        }
+        .search-img {
+            width: 40px;
+            border-radius: 25%;
+        }
+        .pfp,
+        .notifications,
+        .browse-img {
+            width: 40px;
+            border-radius: 25%;
+        }
+        center {
+            display: flex;
+            align-items: center;
+        }
+        .left-holder {
+            background-color:rgb(92, 223, 140);
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-radius: 10px;
+            justify-self: end;
+        }
+        .left-holder img {
+            padding: 5px;
+        }
+        .right-main {
+            background-color: #333333;
+            width: fit-content;
+            color: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 25px;
+        }
+        h2 {
+            margin: 0;
+        }
+        h3 {
+            margin: 0;
+        }
+        p {
+            margin: 0;
+        }
+        .playlist {
+            background-color:rgb(92, 223, 140);
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .playlist-details {
+            font-size: 12.5px;
+        }
+        .center-holder {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .playing-song {
+            margin-top: 10px;
+            background-color: #696969;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            flex-direction:column;
+            padding: 10px;
+        }
+        .song-cover {
+            width: 200px;
+            border-radius: 25%;
+        }
+        .song-details {
+            margin: 5px;
+            text-align: center;
+            background-color:rgb(92, 223, 140);
+            font-size: 10px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        .song-play {
+            background-color: rgb(92, 223, 140);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            width: fit-content;
+        }
+        .song-play img {
+            width: 35px;
+            border-radius: 50%;
+            margin: 5px;
+        }
+        .skip-backward,
+        .skip-forward {
+            width: 30px;
+        }
+        .center-main {
+            background-color: #333333;
+            color: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 25px;
+            grid-column: span 2;
+            display: flex;
+        }
+        .main-pfp {
+            width: 150px;
+            border-radius: 25%;
+        }
+        .top-center {
+            grid-column: span 2;
+            width: fit-content;
+            background-color: rgb(92, 223, 140);
+            padding: 10px;
+            border-radius: 15px;
+            display: grid;
+        }
+        .top-holder {
+            display: flex;
+            height: 50%;
+            align-items: center;
+        }
+        .last-played {
+            margin-left: 20px;
+        }
+        .last-played h2 {
+            font-size: 20px;
+        }
+        .last-played img {
+            width: 125px;
+            border-radius: 5px;
+        }
+        .last-played-row-1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .daily-mix-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" alt="e" src="images/logo-green.png">
+        <div class="search-holder">
+            <div class="search">
+                <center>
+                    <img class="search-img" alt="e" src="images/search.png">
+                    <input type="text" placeholder="What do you want to play?" class="search-input"> 
+                    <img class="browse-img" alt="e" src="images/browse.png">
+                </center>
+            </div>
+        </div>
+        <div class="left-holder">
+            <img class="pfp" alt="e" src="images/pfp.png">
+            <img class="notifications" alt="e" src="images/notification.png">
+        </div>
+    </div>
+    <div class="center-holder">
+        <div class="right-main">
+            <div class="playlist-holder">
+                <div class="playlist">
+                    <h2 class="playlist-name">My Playlist #1</h2>
+                    <hr noShade color="white">
+                    <p class="playlist-details">Your playlist • 3 hr 4 min</p>
+                </div>
+                <div class="playlist">
+                    <h2 class="playlist-name">My Playlist #2</h2>
+                    <hr noShade color="white">
+                    <p class="playlist-details">Your playlist • 1 hr 15 min</p>
+                </div>
+            </div>
+            <div class="playing-song">
+                <img class="song-cover" src="images/song-1-cover.png" alt="e">
+                <div class="song-details">
+                    <h2 class="song-name">Song name </h2> 
+                    <hr noShade color="white">
+                    <h3 class="song-writer-name">Naman Agnihotry</h3>
+                </div>
+                <div class="song-play">
+                    <img alt="e" class="skip-backward" src="images/skip-backward.png">
+                    <img alt="e" class="play-button" src="images/play-button.png">
+                    <img alt="e" class="skip-forward" src="images/skip-forward.png">
+                </div>
+            </div>
+        </div>
+        <div class="center-main">
+            <div class="top-holder">
+                <div class="top-center">
+                    <img src="images/pfp.png" alt="e" class="main-pfp">
+                    <h1>Hello, J!</h1>
+                </div>
+                <div class="last-played">
+                    <h2>Daily Mix</h2>
+                    <div class="last-played-row-1">
+                        <div class="daily-mix-1">
+                            <img alt="e" src="images/daily-1.png">
+                            <h3>Daily Mix 1</h3>
+                        </div>
+                        <div class="daily-mix-1">
+                            <img alt="e" src="images/daily-2.png">
+                            <h3>Daily Mix 2</h3>
+                        </div>
+                        <div class="daily-mix-1">
+                            <img alt="e" src="images/daily-3.png">
+                            <h3>Daily Mix 3</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

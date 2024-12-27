@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OS - Desktop</title>
+  <link rel='stylesheet' href="styles/desktop.css">
+</head>
+<body>
+  <div class="taskbar">
+    <div class="taskbar-color"></div>
+    <div class="exit">
+      <button class="exit-button" onclick="window.location.href='http://127.0.0.1:5500/OS/login.html'" style="cursor: pointer">Exit</button>
+    </div>
+    <div class="taskbar-icons">
+      <img src="images/home-button.png" class="home-button" onclick="window.location.href='http://www.google.com'" style="cursor: pointer">
+      <a href="http://127.0.0.1:5500/OS/desktop-apps/explorer.html" target="_blank">
+        <img src="images/file-explorer.png" class="file-explorer-button" style="cursor: pointer">
+      </a>
+      <a> 
+        <img src="images/notepad-icon.png" class="notepad-icon" style="cursor: pointer">
+      </a>
+      <a>
+        <img src="images/settings-logo.png" class="settings-icon" style="cursor: pointer" >
+      </a>
+      <a>
+        <img src='images/task-manager-icon.png' class="task-manager-icon" style="cursor: pointer">
+      </a>
+      <a>
+        <img src="images/calender-logo.png" class="calendar-icon" style="cursor: pointer">
+      </a>
+      <a>
+        <img src="images/broswer-icon.png" class="broswer-icon" style="cursor: pointer">
+      </a>
+    </div>
+  </div>
+  <div class="desktop">
+    <div class="file-explorer">
+      <a href="http://127.0.0.1:5500/OS/desktop-apps/explorer.html" target="_blank">
+        <img src="images/file-explorer.png" class="file-explorer-shortcut" style="cursor: pointer"> 
+      </a>
+      <p class="file-explorer-name">File Explorer</p>
+      <div class="notepad">
+        <a>
+          <img src="images/notepad-icon.png" class="notepad-shortcut" style="cursor: pointer">
+          <p class="notepad-name">Notepad</p>
+        </a>
+      </div>
+      <div class="settings">
+        <a>
+          <img src="images/settings-logo.png" class="settings-shortcut" style="cursor: pointer">
+          <p class="settings-name">Settings</p>
+        </a>
+      </div>
+      <div class="task-manager">
+        <img src="images/task-manager-icon.png" class="task-manager-shortcut" style="cursor: pointer">
+        <p class="task-manager-name">Task Manager</p>
+      </div>
+      <div class="calendar">
+        <img src="images/calender-logo.png" class="calendar-shortcut" style="cursor: pointer">
+        <p class="calendar-name">Calendar</p> 
+      </div>
+      <div class="broswer">
+        <img src="images/broswer-icon.png" class="broswer-shortcut" style="cursor: pointer">
+        <p class="broswer-name">Zhrome</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

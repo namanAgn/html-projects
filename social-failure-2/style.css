@@ -1,0 +1,20 @@
+.a, .b, .c, .d, .e {
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+}
+.a {
+    background-color: rgb(255, 223, 195)
+}
+.b {
+    background-color: rgb(201, 153, 117)
+}
+.c {
+    background-color: rgb(120, 87, 66)
+}
+.d {
+    background-color: rgb(238, 237, 233)
+}
+.e {
+    background-color: rgb(173, 114, 90)
+}

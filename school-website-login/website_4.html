@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Application</title>
+    <style>
+      body , html {
+        background-image: url("schoolimage.webp");
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        font-family : Arial;
+      }
+      .background-color {
+        background-color: white;
+        font-size: 0;
+        padding-top: 30px;
+        position: relative;
+        top: -35px;
+        vertical-align: middle;
+        padding-bottom: 800px;
+        margin-left: 550px;
+        margin-right: 550px;
+        margin-top: 100px;
+        margin-bottom: 30px;
+        border-radius: 50px;
+      }
+      .heading {
+        position: relative;
+        top: -880px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 40px;
+      }
+      .heading-2 {
+        position: relative;
+        top: -900px;
+        color:  red;
+        text-align: center;
+      }
+      .heading-name {
+        position: relative;
+        top: -950px;
+        left: 600px;
+        font-weight: bold;
+        font-size: 21px;
+      }
+      .age-name {
+        position: relative;
+        top: -960px;
+        left: 600px;
+        font-weight: bold;
+        font-size: 21px;
+      }
+      .input-name {
+        position: relative;
+        text-emphasis-color: black  ;
+        font-size: 17px;
+        font-weight: bold;
+        left: 600px;
+        top: -960px;
+        padding-right: 470px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-top: 10px;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: black;
+      }
+      .gender-name {
+        position: relative;
+        color: black;
+        font-size: 21px;
+        font-weight: bold;
+        left: 942.5px;
+        top: -1062.5px;
+      }
+      .age-selector {
+        position: relative;
+        left: 515px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 15px;
+        padding-right: 222.5px;
+        border-radius: 10px;
+        top: -965px;
+        font-size: 17px;
+        font-weight: bold;
+        color: black;
+        border-color: black;
+      }
+      .input-gender {
+        position: relative;
+        left: 942.5px;
+        top: -1072.5px;
+        font-size: 17px;
+        font-weight: bold;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 130px;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: black;
+      }
+      .input-birthday {
+        position: relative;
+        left: 600px;
+        top: -1072.5px;
+        font-size: 17px;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 560px;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: black;
+        cursor: pointer;
+      }
+      .birthday-name {
+        position: relative;
+        top: -1070px;
+        left: 600px;
+        font-weight: bold;
+        color: black;
+        font-size: 21px;
+      }
+      .address-name {
+        position: relative;
+        top: -1070px;
+        left: 600px;
+        font-weight: bold;
+        color: black;
+        font-size: 21px;
+      }
+      .input-address1 {
+        position: relative;
+        left: 600px;
+        top: -1072.5px;
+        font-size: 17px;
+        font-weight: bold;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 475px;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: black;
+      }
+      .contact-name {
+        position: relative;
+        left: 600px;
+        top: -1072.5px;
+        font-size: 21px;
+        font-weight: bold;
+      }
+      .input-contact {
+        position: relative;
+        left: 600px;
+        top: -1152.5px;
+        font-size: 17px;
+        font-weight: bold;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 475px;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: black;
+      }
+      .button-submit {
+        background-color: rgb(0, 119, 255);
+        border: none;
+        position: relative;
+        top: -1080px;
+        left: 175px;
+        color: white;
+        font-size: 21px;
+        font-weight: bold;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        transition: background-color 0.5s
+      }
+      .button-submit:hover {
+        background-color: rgb(66, 148, 243)
+      }
+      .button-submit:active {
+        background-color: rgb(85, 155, 235)
+      }
+      .move-up {
+        position: relative;
+        top: 45px;
+      }
+      .school-logo1 {
+        width: 120px;
+        position: relative;
+        top: -980px;
+        right: 180px;
+      }
+      .school-logo2 {
+        width: 120px;
+        position: relative;
+        top: -980px;
+        left: 180px;
+      }
+      .submit-link {
+        position: relative;
+        top: -980px;
+        text-align: center;
+      }
+      
+      </style>
+  </head>
+  <body>
+    <div class="background-color">
+    </div>
+    <div>
+      <h1 class="heading">Student Application</h1>
+      <p class="heading-2">Please fill all out all the blanks</p>
+    </div>
+    <div class="move-up">
+      <p class="heading-name">Name:</p>
+      <input type='text'class="input-name" placeholder="Enter your name..">
+      <p class="age-name">Age:</p>
+      <label for="age">Select Age:</label>
+      <input class="age-selector" type="number" id="age" name="age" min="1" max="100" placeholder="Age..">
+      <p class="gender-name">Gender:</p>
+      <input type='text' class="input-gender" placeholder="Enter your gender..">
+      <p class="birthday-name">Birthday:</p>
+      <input type='date' class="input-birthday">
+      <p class="address-name">Address:</p>
+      <input type="text" class="input-address1" placeholder="Address..">
+      <p class="contact-name">Contact Info:</p>
+      <input type="text" class="input-contact" placeholder="Phone number or Email.. ">
+      <button class="button-submit" onclick="
+      
+      ">Submit</button>
+      <img src="school-logo.jpg" class="school-logo1">
+      <img src="school-logo.jpg" class="school-logo2">
+    </div>
+  </body>
+</html>

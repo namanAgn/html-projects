@@ -1,0 +1,7 @@
+body {
+    font-family: "Poppins";
+}
+.stock {
+    display: flex;
+    gap: 20px;
+}

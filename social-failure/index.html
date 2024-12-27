@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <title>Lyntr</title>
+    <style>
+        body {
+            background-color: rgb(240, 239, 239);
+            font-family: "Inconsolata";
+            margin: 0;
+        }
+        h2 {
+            margin: 0;
+        }
+        .heading {
+            color: rgba(68,29,12,255);
+            margin: 0;
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+        .tab-heading {
+            margin: 0;
+            color: rgba(68,29,12,255);
+            display: block;
+        }
+        .side-tabs {
+            background-color: rgba(234,231,218,255);
+            display: grid;
+            padding-right: 0;
+            width: fit-content;
+            padding: 15px;
+            border-radius: 15px;
+            width: 185px;
+        }
+        .thoughts-input {
+            background-color: rgba(234,231,218,255);
+            height: 125px;
+            width: 100%;
+            border: none;
+            color: rgba(68,29,12,255);
+            font-weight: 700;
+        }
+        .thoughts-input::placeholder {
+            color: rgba(68,29,12,255);
+            font-weight: 700;
+            font-size: 12.5px;
+        }
+        .thoughts-input:focus {
+            outline: none;
+        }
+        .thoughts {
+            margin-top: 25px;
+            background-color: rgba(234,231,218,255);
+            width: 185px;
+            padding: 15px;
+            border-radius: 15px;
+            height: fit-content;
+            margin-bottom: 25px;
+        }
+        .post-button {
+            border: 3px solid rgba(68,29,12,255);
+            border-radius: 7.5px;
+            background-color: rgba(234,231,218,255);
+            font-family: "Inconsolata";
+            font-weight: 700;
+            font-size: 25px;    
+            transition: all 0.35s ease;
+            cursor: pointer
+        }
+        .post-button:hover {
+            background-color: rgba(68,29,12,255);
+            color: rgba(234,231,218,255);
+        }
+        .profile-img {
+            width: 70px;
+            height: 70px;
+            background-color: rgb(75, 75, 75);
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .profile {
+            display: flex;
+            background-color: rgba(234,231,218,255);
+            width: fit-content;
+            padding: 15px;
+            border-radius: 15px;
+            width: 185px;
+        }
+        .at-name {
+            font-size: 15px;
+        }
+        .side {
+            border-right: 5px solid rgb(191,187,176);
+            padding-right: 15px;
+            max-width: fit-content;
+            padding: 15px;
+        }
+        .post-profile {
+            width: 30px;
+            height: 30px;
+            background-color: rgb(75, 75, 75);
+            border-radius: 50%;
+        }
+        .other-side {
+            max-width: 250px;
+            padding: 15px;
+            grid-column: 3;
+            border-left: 5px solid rgb(191,187,176);
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr)
+        }
+        .post {
+            background-color: rgba(234,231,218,255);
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+        }
+        .top-stats {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 10px;
+        }
+        .post-name {
+            margin-left: 15px;
+        }
+        .stat {
+            margin: 5px;
+        }
+        .post-at-name {
+            color: rgba(187,181,169,255)
+        }
+        .post-followers {
+            color: rgba(68,29,12,255);
+            border: 2px solid rgba(68,29,12,255);
+            padding-bottom: 0;
+            height: fit-content;
+            padding: 1.5px;
+            border-radius: 4.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-grid">
+        <div class="side">
+            <h1 class="heading">lyntr.</h1>
+            <div class="side-tabs">
+                <h2 class="tab-heading">Home</h2>
+                <h2 class="tab-heading">Discover</h2>
+                <h2 class="tab-heading">Notifications</h2>
+            </div>
+            <div class="thoughts">
+                <textarea class="thoughts-input" placeholder="Write your thoughts..."></textarea>
+                <button class="post-button">Post</button>
+            </div>
+            <div class="profile">
+                <div class="profile-img"></div>
+                <div class="name-grid">
+                    <h2 class="name">JasQai</h2>
+                    <h2 class="at-name">@jasqai_idiot</h2>
+                </div>
+            </div>
+        </div>
+        <div class="other-side">
+            <div class="post">
+                <div class="post-profile"></div>
+                <div class="top-stats">
+                    <p class="post-name stat">goblin</p>
+                    <p class="post-followers stat">100</p>
+                    <p class="post-at-name stat">@goblinlive</p>
+                    <p class="post-time stat"> - 3m</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

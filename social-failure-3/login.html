@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/login.css">
+    <title>Catbook - Login</title>
+</head>
+<body>
+    <div class="heading">
+        <h1 class="heading-text">Catbook</h1>
+        <img src="images/logo.png" class="logo" alt="failure">
+    </div>
+    <div class="main">
+        <div class="main-div">
+            <h1 class="main-heading">Login</h1>
+            <div class="username">
+                <h1 class="username-heading">Username:</h1>
+                <input type="text" class="username-input" placeholder="Username..">
+            </div>
+            <div class="password">
+                <h1 class="password-heading">Password:</h1>
+                <input type="text" class="password-input" placeholder="Password..">
+            </div>
+            <button class="log-in-button" onclick="
+            check_details('blueSky48', 'skyBlue84')
+            check_details('quickFox21', 'foxQuick12')
+            check_details('easyBreeze35', 'breezeEasy53')
+            ">Log in</button>
+            <div class="hint">
+                <p class="hint-paragraph">
+                    Maybe try:
+                </p>
+                <p class="hint-paragraph-ids"> 
+                    blueSky48 - skyBlue84
+                    quickFox21 - foxQuick12
+                    easyBreeze35 - breezeEasy53
+                </p>
+            </div>
+            <div>
+                <p class="failure-paragraph">
+                    
+                </p>     
+            </div>
+        </div>
+    </div>
+    <script src="scripts/login.js"></script>
+</body>
+</html>

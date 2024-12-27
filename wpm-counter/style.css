@@ -1,0 +1,51 @@
+body, html {
+    margin: 5px;
+    overflow: hidden;
+    font-family: "Inconsolata";
+    background-color: rgb(95, 95, 95);
+    color: white;
+}
+.word-display {
+    display: grid;
+    grid-template-columns: repeat(auto, 1fr);
+    font-size: 45px;
+    gap: 16px;
+    margin-left: 70px;
+}
+.correct {
+    color: green;
+}
+.incorrect {
+    color: red;
+}
+.main {
+    background-color: rgb(65, 65, 65);
+    border-radius: 75px;
+
+}
+.heading {
+    text-align: center;
+    font-size: 55px;
+}
+.time-left-display,
+.words-typed-display {
+    font-size: 35px;
+    margin: 15px;
+    margin-left: 70px;
+}
+.word-input {
+    color: white;
+    background-color: rgb(65, 65, 65);
+    border: 3px solid white;
+    padding: 12px;
+    border-radius: 10px;
+    margin-left: 70px;
+    margin-top: 30px;
+    font-size: 35px;
+}
+.word-input::placeholder {
+    color: white;
+}
+.wpm-display {
+    font-size: 35px;
+}

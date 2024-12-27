@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>MeowSphere</title>
+    <style>
+body, html {
+        height: 100vh;
+        width: 100vw;
+        font-family: "Poppins";
+        margin: 0;
+        overflow-x: hidden;
+        scale: 1;
+    }
+    .header {
+        background-color: rgb(120, 87, 66);
+        display: flex;
+        padding: 10px;
+    }
+    .header h1 {
+        color: white;
+        font-size: 35px;
+        margin: 0;
+    }
+    .main-content {
+        display: flex;
+        margin: 20px;
+    }
+    .profile {
+        border-radius: 25px;
+        margin: 20px;
+        padding: 10px;
+        max-width: fit-content;
+        display: flex;
+        align-items: center;
+        background-color: rgb(201, 153, 117);
+    }
+    .profile img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 20px;
+    }
+    .profile h1, .profile p {
+        margin: 0;
+    }
+    .profile h1 {
+        color: white;
+    }
+    .profile p {
+        color: rgb(221, 221, 221);
+    }
+    .prof-desc {
+        max-width: 300px;
+    }
+    .favourited-users {
+        background-color: rgb(201, 153, 117);
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 25px;
+        width: 560px;
+    }
+    .favourited-users h1 {
+        color: white;
+    }
+    .followed-users {
+        border-radius: 25px;
+        margin: 20px;
+        padding: 10px;
+        max-width: fit-content;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        align-items: center;
+        background-color: rgb(201, 153, 117);
+    }
+    .followed-users img {
+        width: 150px;
+        border-radius: 50%;
+    }
+    .followed-1 {
+        background-color: rgb(120, 87, 66);
+        padding: 10px;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .followed-1 h1, .followed-1 p {
+        margin: 0;
+    }
+    .followed-1 h1 {
+        color: white;
+    }
+    .followed-1 p {
+        color: rgb(221, 221, 221);
+    }
+    .user-posts {
+        margin: 20px;
+        background-color: rgb(201, 153, 117);
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 25px;
+        width: 560px;
+    }
+    .user-posts h1 {
+        color: white;
+    }
+    .post {
+        background-color: rgb(120, 87, 66);
+        border-radius: 25px;
+        margin: 10px;
+        padding: 15px;
+        width: 90%;
+        color: white;
+        font-size: 18px;
+    }
+    .post .post-header {
+        display: flex;
+        align-items: center;
+    }
+    .post .post-header img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .post .post-header h2 {
+        font-size: 20px;
+        margin: 0;
+    }
+    .post .post-content {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: rgb(221, 221, 221);
+    }
+    .post-stats {
+        background-color: rgb(201, 153, 117);
+        border-radius: 15px;
+        display: flex;
+        gap: 10px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+    .post-stats img {
+        width: 35px;
+        height: 35px;
+        border-radius: 15px;
+    }
+    .post-stats input {
+        background-color: rgb(201, 153, 117);
+        padding: 7px;
+        border: solid 4px white;
+        border-radius: 15px;
+        color: white;
+        font-size: 15px;
+        font-family: "Poppins";
+        vertical-align: left;
+        margin-left: 30px;
+    }
+    .post-stats input::placeholder {
+        color: white;
+        font-size: 15px;
+        font-family: "Poppins";
+    }
+    .post-stats input:focus {
+        outline: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MeowSphere</h1>
+    </div>
+    <div class="main-content">
+        <!-- Profile Section -->
+        <div>
+            <div class="profile">
+                <img src="images/pfp.jpg">
+                <div>
+                    <h1>Giddu</h1>
+                    <p>@meow-bruh</p>
+                    <p class="prof-desc">hi me name giddu. me like eat food. me like sleep. me like uhhhh biting hooman? qwyhgdv</p>
+                </div>
+            </div>
+    
+            <!-- Favourited Users Section -->
+            <div class="favourited-users">
+                <h1 class="favourited-users-heading">Favourited Users</h1>
+                <div class="followed-users">
+                    <div class="followed-1">
+                        <img src="images/followed-1.jpg">
+                        <h1>Meowyoai</h1>
+                        <p>@destroyer-meow</p>
+                    </div>
+                    <div class="followed-1">
+                        <img src="images/followed-2.jpg">
+                        <h1>Adolfus</h1>
+                        <p>@german-meowzers</p>
+                    </div>
+                    <div class="followed-1">
+                        <img src="images/followed-3.jpg">
+                        <h1>Cheesiii</h1>
+                        <p>@cheeseeeee</p>
+                    </div>
+                    <div class="followed-1">
+                        <img src="images/followed-4.png">
+                        <h1>Myauiour</h1>
+                        <p>@keyboard-cat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Posts Section -->
+        <div class="user-posts">
+            <h1>User Posts</h1>
+            <div class="post">
+                <div class="post-header">
+                    <img src="images/pfp.jpg" alt="User Profile Picture">
+                    <h2>Giddu</h2>
+                </div>
+                <div class="post-content">
+                    had big nap (liek 23 hours) and i dreamd about food. 10/10 dream
+                </div>
+                <div class="post-stats">
+                    <img src="images/like.png">
+                    <p>1k</p>
+                    <img src="images/dislike.png">
+                    <p>312</p>
+                    <input type="text" placeholder="reply to dis">
+                    <p>1 reply</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <img src="images/pfp.jpg" alt="User Profile Picture">
+                    <h2>Giddu</h2>
+                </div>
+                <div class="post-content">
+                    knocked over vase, big fun had. hooman screamed but art pain fol so all gud
+                </div>
+                <div class="post-stats">
+                    <img src="images/like.png">
+                    <p>4k</p>
+                    <img src="images/dislike.png">
+                    <p>1.3k</p>
+                    <input type="text" placeholder="reply to dis">
+                    <p>120 reply</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <img src="images/pfp.jpg" alt="User Profile Picture">
+                    <h2>Giddu</h2>
+                </div>
+                <div class="post-content">
+                    dajhslkjsnzbvkhjjkdah sdqouwdhj 12eusjaiokbdnxsjbmn<br>
+                    asd <br>
+                    sorry <br>
+                    cat on keybord
+                </div>
+                <div class="post-stats">
+                    <img src="images/like.png">
+                    <p>3.5k</p>
+                    <img src="images/dislike.png">
+                    <p>523</p>
+                    <input type="text" placeholder="reply to dis">
+                    <p>31203 reply</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <img src="images/pfp.jpg" alt="User Profile Picture">
+                    <h2>Giddu</h2>
+                </div>
+                <div class="post-content">
+                    just ate tuna. very gud 👍👍. tasted liek clouds and sparkel dust
+                </div>
+                <div class="post-stats">
+                    <img src="images/like.png">
+                    <p>12k</p>
+                    <img src="images/dislike.png">
+                    <p>23</p>
+                    <input type="text" placeholder="reply to dis">
+                    <p>1k reply</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

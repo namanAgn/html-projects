@@ -1,0 +1,155 @@
+body, html {
+  background-color: rgb(134, 175, 237);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+}
+.taskbar-color {
+  background-color:  rgb(25,25,25);
+  padding-bottom: 60px;
+  margin-top: 855px;
+}
+.exit-button {
+  color: rgb(25,25,25);
+  border: none;
+  background-color: red;
+  position: relative;
+  top: -50px;
+  left: 1770px;
+  font-size: 25px;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.home-button {
+  background-color: rgb(25,25,25);
+  border: none;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: -95px;
+  right: 135px;
+}
+.file-explorer-button {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 500px;
+}
+.file-explorer-shortcut {
+  width: 100px;
+  position: relative;
+  top: -1000px;
+  left: 15px;
+}
+.file-explorer-name {
+  position: relative;
+  top: -1020px;
+  left: 25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.notepad-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 520px;
+}
+.notepad-shortcut {
+  width: 90px;
+  position: relative;
+  top: -1000px;
+  left: 15px;
+}
+.notepad-name {
+  position: relative;
+  top: -1015px;
+  left: 25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.settings-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 540px;
+}
+.settings-shortcut {
+  width: 100px;
+  position: relative;
+  top: -1000px;
+  left: 15px;
+}
+.settings-name {
+  position: relative;
+  top: -1015px;
+  left: 25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.task-manager-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 560px;
+}
+.task-manager-shortcut {
+  width: 100px;
+  position: relative;
+  top: -1000px;
+  left: 15px;
+}
+.task-manager-name {
+  position: relative;
+  top: -1025px;
+  left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.calendar-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 580px;
+}
+.calendar-shortcut {
+  width: 100px;
+  position: relative;
+  top: -1000px;
+  left: 15px;
+}
+.calendar-name {
+  position: relative;
+  top: -1025px;
+  left: 25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.broswer-icon {
+  width: 50px;
+  position: relative;
+  top: -95px;
+  left: 580px;
+}
+.broswer-shortcut {
+  width: 100px;
+  position: relative;
+  top: -1820px;
+  left: 190px;
+}
+.broswer-name {
+  position: relative;
+  top: -1845px;
+  left: 200px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.taskbar-icons {
+  position: relative;
+  left: 150px;
+}

@@ -1,0 +1,463 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    transform: scale(1.5);
+    font-family: 'Fredoka', sans-serif; 
+    transition: all 0.45s ease;
+}
+
+.word-display {
+    color: #333;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 7.5px;
+    transition: all 0.45s ease;
+}
+
+.word-input {
+    background-color: #333;
+    border: 4px solid white;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 15px;
+    width: 230px;
+    transition: all 0.45s ease;
+}
+
+.word-input:focus {
+    outline: none;
+}
+.word-input::placeholder {
+    color: white;
+    transition: all 0.45s ease;
+}
+
+.reveal-button {
+    background-color: #333;
+    border: 4px solid white; 
+    border-radius: 5px;
+    color: white;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.45s ease;
+}
+.cycle-button,
+.ocean-button,
+.pastel-button,
+.dark-button,
+.light-button {
+    background-color: white;
+    border: none;
+    font-family: 'Fredoka';
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.45s ease;
+}
+.change-themes-p,
+.hints-taken,
+.words-guessed,
+.reveal-word-p {
+    font-size: 15px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.45s ease;
+}
+
+body.light, html.light {
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    transform: scale(1.5);
+    font-family: 'Fredoka', sans-serif; 
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.word-display.light {
+    color: white;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 7.5px;
+}
+
+.word-input.light {
+    background-color: white;
+    border: 4px solid #333;
+    border-radius: 5px;
+    color: #333;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 15px;
+    width: 230px;
+    transition: all 0.45s ease;
+}
+
+.word-input.light:focus {
+    outline: none;
+}
+.word-input.light::placeholder {
+    color: #333;
+}
+
+.reveal-button.light {
+    background-color: white;
+    border: 4px solid #333; 
+    border-radius: 5px;
+    color: #333;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.45s ease;
+}
+
+.light-button.light {
+    background-color: #333;
+    border: none;
+    font-family: 'Fredoka';
+    border-radius: 5px;
+    font-weight: 500;
+}
+.change-themes-p.light,
+.hints-taken.light,
+.words-guessed.light,
+.reveal-word-p.light {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+}
+.cycle-button.light,
+.ocean-button.light,
+.pastel-button.light,
+.dark-button.light,
+.light-button.light {
+    background-color: #333;
+    color: white;
+    border: none;
+    font-family: 'Fredoka';
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+body.pastel, html.pastel {
+    overflow: hidden;
+    background-color: #ffe5ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    transform: scale(1.5);
+    font-family: 'Fredoka', sans-serif; 
+    transition: all 0.45s ease;
+}
+
+.word-display.pastel {
+    color: #fb6f92;
+    background-color: #ffb3c6;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 7.5px;
+    transition: all 0.45s ease;
+}
+
+.word-input.pastel {
+    background-color: #ffb3c6;
+    border: 4px solid #fb6f92;
+    border-radius: 5px; 
+    color: #fb6f92;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 15px;
+    width: 230px;
+    transition: all 0.45s ease;
+}
+
+.word-input.pastel:focus {
+    outline: none;
+}
+.word-input.pastel::placeholder {
+    font-family: 'Fredoka';
+    font-weight: 500;
+    color: #fb6f92;
+    transition: all 0.45s ease;
+}
+
+.reveal-button.pastel {
+    background-color: #ffb3c6;
+    border: 4px solid #fb6f92; 
+    border-radius: 5px;
+    color: #fb6f92;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.45s ease;
+}
+.cycle-button.pastel,
+.ocean-button.pastel,
+.pastel-button.pastel,
+.dark-button.pastel,
+.light-button.pastel {
+    background-color: #ffb3c6;
+    color: #fb6f92;
+    border: none;
+    font-family: 'Fredoka';
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.45s ease;
+}
+.reveal-word-p.pastel {
+    font-size: 15px;
+    color: #fb6f92;
+    text-align: center;
+    transition: all 0.45s ease;
+    font-weight: 500;
+}
+
+.change-themes-p.pastel,
+.hints-taken.pastel,
+.words-guessed.pastel {
+    font-size: 15px;
+    color: #fb6f92;
+    text-align: center;
+    transition: all 0.45s ease;
+    font-weight: 500;
+}
+body.ocean, html.ocean {
+    overflow: hidden;
+    background-color: #dcf6ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    transform: scale(1.5);
+    font-family: 'Fredoka', sans-serif; 
+    transition: all 0.45s ease;
+}
+
+.word-display.ocean {
+    color: #005EB8;
+    background-color: #66B2E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 7.5px;
+    transition: all 0.45s ease;
+}
+
+.word-input.ocean {
+    background-color: #66B2E8;
+    border: 4px solid #005EB8;
+    border-radius: 5px;
+    color: #005EB8;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 15px;
+    width: 230px;
+    transition: all 0.45s ease;
+}
+
+.word-input.ocean:focus {
+    outline: none;
+}
+.word-input.ocean::placeholder {
+    color: #0077b6;
+    transition: all 0.45s ease;
+}
+
+.reveal-button.ocean {
+    background-color: #66B2E8;
+    border: 4px solid #005EB8; 
+    border-radius: 5px;
+    color: #005EB8;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.45s ease;
+}
+.cycle-button.ocean,
+.ocean-button.ocean,
+.pastel-button.ocean,
+.dark-button.ocean,
+.light-button.ocean {
+    background-color: #66B2E8;
+    color: #005EB8;
+    border: none;
+    font-family: 'Fredoka';
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.45s ease;
+}
+
+.change-themes-p.ocean,
+.hints-taken.ocean,
+.words-guessed.ocean {
+    font-size: 15px;
+    color: #005EB8;
+    text-align: center;
+    transition: all 0.45s ease;
+    font-weight: 500;
+}
+.reveal-word-p.ocean {
+    font-size: 15px;
+    color: #005EB8;
+    text-align: center;
+    transition: all 0.45s ease;
+    font-weight: 500;
+}
+body.dark, html.dark {
+    overflow: hidden;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    transform: scale(1.5);
+    font-family: 'Fredoka', sans-serif; 
+    transition: all 0.45s ease;
+}
+
+.word-display.dark {
+    color: #ffffff;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 7.5px;
+    transition: all 0.45s ease;
+}
+
+.word-input.dark {
+    background-color: #000000;
+    border: 4px solid #ffffff;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 15px;
+    width: 230px;
+    transition: all 0.45s ease;
+}
+
+.word-input.dark:focus {
+    outline: none;
+}
+.word-input.dark::placeholder {
+    color: #ffffff;
+    transition: all 0.45s ease;
+}
+
+.reveal-button.dark {
+    background-color: #000000;
+    border: 4px solid #ffffff; 
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.45s ease;
+}
+.cycle-button.dark,
+.ocean-button.dark,
+.pastel-button.dark,
+.dark-button.dark,
+.light-button.dark {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    font-family: 'Fredoka';
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.45s ease;
+}
+.change-themes-p.dark,
+.hints-taken.dark,
+.words-guessed.dark {
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.45s ease;
+    font-weight: 500;
+}
+.reveal-word-p.dark {
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.45s ease;
+    font-weight: 500;
+}

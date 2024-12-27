@@ -1,0 +1,112 @@
+body, html {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+.heading {
+    padding-bottom: 35px;   
+    margin-top: -65px;
+    
+}
+.heading-text {
+    font-size: 35px;
+    color: white;
+    position: relative;
+    background-color: rgb(45,45,45);
+    top: 40px;
+    padding: 7.5px;
+}
+.logo {
+    width: 60px;
+    position: relative;
+    bottom: 45px;
+    left: 150px;
+}
+.main {
+    border-radius: 13%;
+    margin-left: 675px;
+    margin-right: 675px;
+    padding-bottom: 125px;
+    background-color: rgb(45,45,45);
+    overflow: hidden;
+}
+.main-heading {
+    color: white;
+    position: relative;
+    left: 180px;
+    top: 20px;
+    font-size: 50px;
+}
+.password-input,
+.username-input{
+    position: relative;
+    left: 25px;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 115px;
+    border-width: 3px;
+    border-style: none;
+    background-color: rgb(219, 219, 219);
+    color: rgb(45,45,45);
+    font-style: bold;
+    font-size: 27.5px;
+}
+.password-input {
+    top: -10px;
+}
+.password-heading,
+.username-heading {
+    color: white;
+    font-size: 27.5px;
+    position: relative;
+    left: 25px;
+}
+.password {
+    position: relative;
+    top: 30px;
+}
+.log-in-button {
+    position: relative;
+    top: 75px;
+    left: 100px;
+    border-radius: 15px;
+    padding-left: 125px;
+    padding-right: 125px;
+    font-size: 27.5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-color: white;
+    background-color: rgb(45,45,45);
+    color: white;
+    cursor: pointer;
+}
+.main-div {
+    position: relative;
+    top: 15px;
+}
+.hint-paragraph-ids,
+.hint-paragraph {
+    color: white;
+    width: 220px;
+    text-align: center; 
+    position: relative;
+    top: 70px;
+    left: 150px;
+}
+.hint-paragraph {
+    font-size: 25px;
+    font-weight: bold;
+}
+.hint-paragraph-ids {
+    top: 50px;
+}
+.failure-paragraph {
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+    position: relative;
+    top: 80px;
+    left: 220px;
+}
