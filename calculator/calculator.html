@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="icon.png" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href="calculator.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <div class="background-color"></div>  
+        <div class="main">
+        <div class="screen-color">
+            <p class="output"></p>
+        </div class='button'>
+            <div class="row-1">
+                <button class="button-7" onclick="
+                addToEquation('7')    
+                ">7</button>
+                <button class="button-8" onclick="
+                addToEquation('8')    
+                ">8</button>
+                <button class="button-9" onclick="
+                addToEquation('9')    
+                ">9</button>
+                <button class="button-PLUS" onclick="
+                addToEquation(' + ')     
+                ">+</button>
+            </div>
+            <div class="row-2">
+                <button class="button-4" onclick="
+                addToEquation('4')    
+                ">4</button>
+                <button class="button-5" onclick="
+                addToEquation('5')    
+                ">5</button>
+                <button class="button-6" onclick="
+                addToEquation('6')    
+                ">6</button>
+                <button class="button-MINUS" onclick="
+                addToEquation(' - ')    
+                ">-</button>
+            </div>
+            <div class="row-3">
+                <button class="button-1" onclick="
+                addToEquation('1')    
+                ">1</button>
+                <button class="button-2" onclick="
+                addToEquation('2')    
+                ">2</button>
+                <button class="button-3" onclick="
+                addToEquation('3')    
+                ">3</button>
+                <button class="button-MULT" onclick="
+                addToEquation(' * ')    
+                ">x</button>
+            </div>
+            <div class="row-4">
+                <button class="button-C" onclick="
+                deleteEquation()    
+                ">C</button>
+                <button class="button-0" onclick="
+                addToEquation('0')    
+                ">0</button>
+                <button class="button-EQUALS" onclick="
+                solve()
+                ">=</button>
+                <button class="button-DIV" onclick="
+                addToEquation(' / ')    
+                ">/</button>
+            </div>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>

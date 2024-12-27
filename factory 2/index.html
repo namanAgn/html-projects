@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Gathering Simulator</title>
+    <style>
+        .main {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr)
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <h2>Basic Resources</h2>
+            <div class='wood-section'>
+                <h3 class="button-heading">Gather wood</h3>
+                <button class="wood-button">Click to gather wood.</button>
+                <p class="wood-display">Wood: </p>
+            </div>
+            <div class='stone-section'>
+                <h3 class="button-heading">Gather stone</h3>
+                <button class="stone-button">Click to gather stone.</button>
+                <p class="stone-display">Stone: </p>
+            </div> 
+            <div class='iron-section'>
+                <h3 class="button-heading">Gather iron</h3>
+                <button class="iron-button">Click to gather iron.</button>
+                <p class="iron-display">Iron: </p>
+            </div> 
+            <div class='minerals-section'>
+                <h3 class="button-heading">Gather minerals</h3>
+                <button class="minerals-button">Click to gather minerals.</button>
+                <p class="minerals-display">Minerals: </p>
+            </div> 
+            <div class='oil-section'>
+                <h3 class="button-heading">Gather oil</h3>
+                <button class="oil-button">Click to gather oil.</button>
+                <p class="oil-display">Oil: </p>
+            </div> 
+        </div>
+        <div>
+            <h2 class="crafting-heading">Basic Crafting</h2>
+            <div>
+                <h3 class='craft-plank-heading'>Craft Planks</h3>
+                <p class="plank-ingredients">1 Plank = 2 Wood</p>
+                <input type="text" placeholder="Enter the amount here.." class="plank-input">
+                <button type="button" class="plank-crafting-button">Craft Planks</button>
+                <p class="plank-crafting-status"></p>
+            </div>
+            <div>
+                <h3 class='craft-brick-heading'>Craft Bricks</h3>
+                <p class="brick-ingredients">1 Brick = 3 Stone + 1 Iron</p>
+                <input type="text" placeholder="Enter the amount here.." class="brick-input">
+                <button type="button" class="brick-crafting-button">Craft Bricks</button>
+                <p class="brick-crafting-status"></p>
+            </div>
+            <div>
+                <h3 class='craft-tin-heading'>Craft Tin</h3>
+                <p class="tin-ingredients">1 Tin = 2 Iron + 1 Mineral</p>
+                <input type="text" placeholder="Enter the amount here.." class="tin-input">
+                <button type="button" class="tin-crafting-button">Craft Tin</button>
+                <p class="tin-crafting-status"></p>
+            </div>
+            <div>
+                <h3 class='craft-sand-heading'>Craft Sand</h3>
+                <p class="sand-ingredients">1 Sand = 3 Minerals + 1 Stone</p>
+                <input type="text" placeholder="Enter the amount here.." class="sand-input">
+                <button type="button" class="sand-crafting-button">Craft Sand</button>
+                <p class="sand-crafting-status"></p>
+            </div>
+            <div>
+                <h3 class='craft-composite-material-heading'>Craft Composite Material</h3>
+                <p class="composite-ingredients">1 Composite Material = 3 Oil + 2 Iron + 2 Wood</p>
+                <input type="text" placeholder="Enter the amount here.." class="composite-material-input">
+                <button type="button" class="composite-crafting-button">Craft Composite Material</button>
+                <p class="composite-material-crafting-status"></p>
+            </div>
+        </div>
+        <div>
+            <h2>Intermediate Resources</h2>
+            <div class='planks-section'>
+                <h3 class="button-heading">Planks</h3>
+                <p class="plank-display">Planks: </p>
+            </div> 
+            <div class='brick-section'>
+                <h3 class="button-heading">Bricks</h3>
+                <p class="brick-display">Bricks: </p>
+            </div> 
+            <div class='tin-section'>
+                <h3 class="button-heading">Tin</h3>
+                <p class="tin-display">Tin: </p>
+            </div>
+            <div class='sand-section'>
+                <h3 class="button-heading">Sand</h3>
+                <p class="sand-display">Tin: </p>
+            </div> 
+            <div class='composite-section'>
+                <h3 class="button-heading">Composite Material</h3>
+                <p class="composite-display">Composite Material: </p>
+            </div> 
+        </div>
+        <div>
+            <h2 class="crafting-heading">Intermediate Crafting</h2>
+            <div>
+                <h3 class='build-lumber-mill-heading'>Build Lumber Mill</h3>
+                <p class="lumber-mill-ingredients">1 Lumber Mill = 25 Planks + 10 Composite Material + 10 Wood</p>
+                <p class="lumber-mill-production">1 Lumber Mill = 10 wood/second</p>
+                <input type="text" placeholder="Enter the amount here.." class="lumber-mill-input">
+                <button type="button" class="lumber-mill-building-button">Build Lumber Mills</button>
+                <p class="lumber-mill-building-status"></p>
+            </div>
+            <div>
+                <h3 class='build-brick-factory-heading'>Build Brick Factory</h3>
+                <p class="brick-factory-ingredients">1 Brick Factory = 25 Bricks + 10 Composite Material + 10 Stone</p>
+                <p class="brick-factory-production">1 Brick Factory = 10 stone/second</p>
+                <input type="text" placeholder="Enter the amount here.." class="brick-factory-input">
+                <button type="button" class="brick-factory-building-button">Build Stone Factory</button>
+                <p class="brick-factory-building-status"></p>
+            </div>
+            <div>
+                <h3 class='build-iron-mine-heading'>Build Iron mine</h3>
+                <p class="iron-mine-ingredients">1 Iron mine = 25 Tin + 10 Composite Material + 10 Iron</p>
+                <p class="iron-mine-production">1 Iron mine = 10 iron/second</p>
+                <input type="text" placeholder="Enter the amount here.." class="iron-mine-input">
+                <button type="button" class="iron-mine-building-button">Build Iron Mine</button>
+                <p class="iron-mine-building-status"></p>
+            </div>
+            <div>
+                <h3 class='build-mineral-quarry-heading'>Build Mineral Quarry</h3>
+                <p class="mineral-quarry-ingredients">1 Mineral Quarry = 25 Sand + 10 Composite Material + 10 Minerals</p>
+                <p class="mineral-quarry-production">1 Mineral Quarry = 10 mineral/second</p>
+                <input type="text" placeholder="Enter the amount here.." class="mineral-quarry-input">
+                <button type="button" class="mineral-quarry-building-button">Build Mineral Quarry</button>
+                <p class="mineral-quarry-building-status"></p>
+            </div>
+            <div>
+                <h3 class='build-oil-refinery-heading'>Build Oil Refinery</h3>
+                <p class="oil-refinery-ingredients">1 Oil Refinery = 25 Composite Material + 10 Bricks + 10 Oil</p>
+                <p class="oil-refinery-production">1 Oil Refinery = 10 oil/second</p>
+                <input type="text" placeholder="Enter the amount here.." class="cms-input">
+                <button type="button" class="oil-refinery-building-button">Build Oil Refinery</button>
+                <p class="oil-refinery-building-status"></p>
+            </div>
+        </div>
+        <div>
+            <h2>Buildings</h2>
+            <div class='planks-section'>
+                <h3 class="button-heading">Lumber mills</h3>
+                <p class="lumber-mills-display">Lumber mills: </p>
+            </div> 
+            <div class='brick-section'>
+                <h3 class="button-heading">Brick Factories</h3>
+                <p class="brick-factory-display">Brick Factories: </p>
+            </div> 
+            <div class='tin-section'>
+                <h3 class="button-heading">Tin</h3>
+                <p class="tin-display">Tin: </p>
+            </div>
+            <div class='sand-section'>
+                <h3 class="button-heading">Sand</h3>
+                <p class="sand-display">Tin: </p>
+            </div> 
+            <div class='composite-section'>
+                <h3 class="button-heading">Composite Material</h3>
+                <p class="composite-display">Composite Material: </p>
+            </div> 
+        </div>
+    </div>
+    <script src="resource.js"></script>
+</body>
+</html>

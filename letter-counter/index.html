@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea type="text" class="input" placeholder="‎"></textarea> 
+    <p class="letters-display">Letters: 0</p>
+    <p class="vowels-display">Vowels: 0</p>
+    <p class="consonants-display">Consonants: 0</p>
+    <p class="number-display">Numbers: 0</p>
+    <p class="special-chars-display">Special Characters: 0</p>
+    <script>
+        let letters = 0;
+        let consonants = 0;
+        let vowels = 0;
+        let numbers = 0;
+        let special_chars = 0;
+        
+        document.querySelector('.input').addEventListener('input', () => {
+            const input = Array.from(document.querySelector('.input').value.toLowerCase());
+            
+            letters = 0;
+            vowels = 0;
+            consonants = 0;
+            numbers = 0;
+            special_chars = 0;
+
+            for (let char of input) {
+                if (/[a-zA-Z]/.test(char)) {
+                    letters++;
+                    if ('aeiouAEIOU'.includes(char)) {
+                        vowels++;
+                    } else {
+                        consonants++;
+                    }
+                } else if (/[0-9]/.test(char)) {
+                    numbers++;
+                } else if (/[^a-zA-Z0-9\s]/.test(char)) {
+                    // Matches any non-alphanumeric, non-space character
+                    special_chars++;
+                }
+            }
+
+            document.querySelector('.letters-display').innerText = `Letters: ${letters}`;
+            document.querySelector('.vowels-display').innerText = `Vowels: ${vowels}`;
+            document.querySelector('.consonants-display').innerText = `Consonants: ${consonants}`;
+            document.querySelector('.number-display').innerText = `Numbers: ${numbers}`;
+            document.querySelector('.special-chars-display').innerText = `Special Characters: ${special_chars}`;
+        });
+
+    </script>
+</body>
+</html>

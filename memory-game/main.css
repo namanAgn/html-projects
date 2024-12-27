@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+body.dark {
+    background-color: #333;
+}
+
+.heading {
+    margin-bottom: 20px;
+    font-size: 50px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.heading.dark {
+    color: white;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    background-color: #333;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 30px;
+    color: transparent;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+}
+
+.card.flipped-dark {
+    color: #333;
+    background-color: white;
+}
+
+.card.flipped {
+    color: #333;
+    background-color: white;
+}
+
+.card.dark {
+    color: white;
+    background-color: white;
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Added transition for status color */
+}
+
+.error {
+    color: red;
+}
+
+.victory {
+    color: green;
+}
+.wins,
+.attempts {
+    font-size: 25px;
+    font-weight: bold;
+}
+.replay-button {
+    background-color: #333;
+    color: white;
+    width: 130px;
+    height: 80px;
+    border-radius: 35px;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    transition: width 0.25s ease, height 0.25s ease;
+    cursor: pointer;
+}
+.replay-button:hover {
+    width: 135px;
+    height: 85px;
+}
+
+@media (max-width: 480px) {
+    .game-board {
+        grid-template-columns: repeat(5, 1fr); 
+    }
+
+    .card {
+        width: 60px; 
+        height: 60px; 
+        font-size: 25px;
+    }
+
+    .heading {
+        font-size: 40px; 
+    }
+
+    .status {
+        font-size: 30px;
+    }
+    .attempts {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+.theme-selection {
+    font-weight: bold;
+    max-width: 50%;
+    text-align: center;
+    font-size: 20px;
+}
+.themes-heading {
+    font-size: 30px;
+}

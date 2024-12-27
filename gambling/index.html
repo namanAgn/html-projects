@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lets go gambling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins";
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(85, 85, 85);
+        }
+        div {
+            background-color: rgb(55, 55, 55);
+            padding: 50px;
+
+        }
+        h1 {
+            background-color: rgb(55, 55, 55);
+            width: fit-content;
+            height: fit-content;
+            animation-name: spin;
+            animation-duration: 1000ms;
+            animation-iteration-count: infinite;
+            display: inline-block; /* Ensure the element is treated as a block for rotation */
+            transform-origin: center center; /* Set the rotation point to the center */
+            animation-timing-function: linear
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg); /* Initial rotation */
+            }
+            to {
+                transform: rotate(360deg); /* Full rotation */
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h1>gambling</h1>
+        <p class="money">100.00</p>
+        <button class="main" onclick="flipCoin()">flip</button>
+        <p class="status">lets go gambling!</p>
+    </div>
+
+    <script>
+        const moneyDisplay = document.querySelector('.money');
+        const mainButton = document.querySelector('.main');
+        const status = document.querySelector('.status');
+
+        let money = 100;
+        let fate;
+
+        mainButton.addEventListener('click', () => {
+            random = Math.random();
+            if (random > 0.5) {
+                fate = true
+            } else {
+                fate = false
+            }
+
+            if (fate) {
+                status.innerText = 'you win, yay'
+                money = money * 2
+                moneyDisplay.innerText = money.toFixed(2)
+            } else {
+                status.innerText = 'you lose, sad'
+                money = money * 0.5
+                moneyDisplay.innerText = money.toFixed(2)
+            }
+        });
+    </script>
+</body>
+</html>

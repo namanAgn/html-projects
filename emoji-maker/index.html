@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Emoji Maker</title>
+    <style>
+        body, html {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+        }
+        .top-left-container, 
+        .top-right-container {
+            height: 128px;
+            width: 128px;
+        }
+        .bottom-container {
+            grid-column: span 2;
+            height: 128px;
+            width: 256px;
+        }
+        .top-left-img,
+        .top-right-img {
+            width: 128px;
+            height: 128px;
+        }
+        .bottom-img {
+            height: 128px;
+            width: 256px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="top-left-container">
+            <img src="images/cold-face/top-left.png" class="top-left-img cold-face">
+        </div>
+        <div class="top-right-container">
+            <img src="images/cold-face/top-right.png" class="top-right-img cold-face">
+        </div>
+        <div class="bottom-container">
+            <img src="images/cold-face/bottom.png" class="bottom-img cold-face">
+        </div>
+        <div class="controls">
+            <button class="change-top-left">Change Top Left</button>
+            <button class="change-top-right">Change Top Right</button>
+            <button class="change-bottom">Change Bottom</button>
+        </div>
+    </div>
+    <script>
+        const topLeftButton = document.querySelector('.change-top-left')
+        const topRightButton = document.querySelector('.change-top-right')
+        const bottomButton = document.querySelector('.change-bottom')
+        
+        const topLeftContainer = document.querySelector('.top-left-container')
+        const topRightContainer = document.querySelector('.top-right-container')
+        const bottomContainer = document.querySelector('.bottom-container')
+
+        const topLeftImage = document.querySelector('.top-left-img')
+        const topRightImage = document.querySelector('.top-right-img')
+        const bottomImage = document.querySelector('.bottom-img')
+
+        const filePaths = {
+            cold_face: {
+                bottom: "images/cold-face/bottom.png",
+                top_left: "images/cold-face/top-left.png",
+                top_right: "images/cold-face/top-right.png"
+            },
+            kissing_face: {
+                bottom: "images/kissing-face/bottom.png",
+                top_left: "images/kissing-face/top-left.png",
+                top_right: "images/kissing-face/top-right.png"
+            },
+            sweating_face: {
+                bottom: "images/sweating-face/bottom.png",
+                top_left: "images/sweating-face/top-left.png",
+                top_right: "images/sweating-face/top-right.png"
+            }, 
+            tongue_face: {
+                bottom: "images/tongue/bottom.png"
+            }
+        }
+
+        topLeftButton.addEventListener('click', () => {
+            if (topLeftImage.className.includes('cold-face')) {
+                topLeftImage.classList.remove('cold-face')
+                topLeftImage.classList.add('kissing-face')
+                topLeftImage.src = filePaths.kissing_face.top_left
+            } else if (topLeftImage.className.includes('kissing-face')) {
+                topLeftImage.classList.remove('kissing-face')
+                topLeftImage.classList.add('sweating-face')
+                topLeftImage.src = filePaths.sweating_face.top_left
+            } else if (topLeftImage.className.includes('sweating-face')) {
+                topLeftImage.classList.remove('sweating-face')
+                topLeftImage.classList.add('cold-face')
+                topLeftImage.src = filePaths.cold_face.top_left
+            }
+        })
+
+        topRightButton.addEventListener('click', () => {
+            if (topRightImage.className.includes('cold-face')) {
+                topRightImage.classList.remove('cold-face')
+                topRightImage.classList.add('kissing-face')
+                topRightImage.src = filePaths.kissing_face.top_right
+            } else if (topRightImage.className.includes('kissing-face')) {
+                topRightImage.classList.remove('kissing-face')
+                topRightImage.classList.add('sweating-face')
+                topRightImage.src = filePaths.sweating_face.top_right
+            } else if (topRightImage.className.includes('sweating-face')) {
+                topRightImage.classList.remove('sweating-face')
+                topRightImage.classList.add('cold-face')
+                topRightImage.src = filePaths.cold_face.top_right
+            }
+        })
+
+        bottomButton.addEventListener('click', () => {
+            if (bottomImage.className.includes('cold-face')) {
+                bottomImage.classList.remove('cold-face')
+                bottomImage.classList.add('kissing-face')
+                bottomImage.src = filePaths.kissing_face.bottom
+            } else if (bottomImage.className.includes('kissing-face')) {
+                bottomImage.classList.remove('kissing-face')
+                bottomImage.classList.add('sweating-face')
+                bottomImage.src = filePaths.sweating_face.bottom
+            } else if (bottomImage.className.includes('sweating-face')) {
+                bottomImage.classList.remove('sweating-face')
+                bottomImage.classList.add('cold-face')
+                bottomImage.src = filePaths.cold_face.bottom
+            }
+        })
+    </script>
+</body>
+</html>

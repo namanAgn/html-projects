@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href="style.css">
+    <title>Color Tile Matching Game!</title>
+</head>
+<body>
+    <div class="information">
+        <h1 class="heading">Tile Matching Game!</h1>
+        <div class="information-p">
+            <p>Try to recreate the design on the left on the grid on the right!</p>
+            <p>You will automatically be given another puzzle as soon as you solve</p>
+            <p>The current puzzle. Try to do it as fast as you can!</p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="grid">
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>
+                <button class='blue'>⠀</button>   
+        </div>
+        <div class="player-grid">
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>
+            <button class='white player-buttons'>⠀</button>  
+        </div>
+        <p class="status"></p>
+    </div>
+    <div class="footer">
+        <button class="check-button" type="button">Click here to check!</button>
+        <div class="sub-grid">
+            <p class="wins">Wins: </p>
+            <p class='fails'>Fails: </p>
+        </div>
+        <div class="themes">
+            <h1 class="themes-heading">Themes:</h1>
+            <button class="blue-theme" type="button">Blue</button>
+            <button class="red-theme" type="button">Red</button>
+            <button class="green-theme" type="button">Green</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

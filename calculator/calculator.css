@@ -1,0 +1,93 @@
+body, html {
+    overflow: hidden;
+}
+.background-color {
+    background-color: rgb(55,55,55);
+    padding-bottom: 700px;
+    margin-top: 150px;
+    margin-right: 700px;
+    margin-left: 500px;
+    border-radius: 25px;
+}
+.screen-color {
+    margin-bottom: 50px;
+    background-color: rgb(55,55,55);
+    border-style: solid;
+    border-color: white;
+    width: 375px;
+    height: 200px;
+    overflow: hidden;
+    margin-left: 550px;
+    margin-right: 585px;
+    transform: translate(0, -750px);
+    border-radius: 25px;
+}
+.button-MINUS {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.button-DIV,
+.button-EQUALS,
+.button-0,
+.button-C,
+.button-PLUS,
+.button-MINUS,
+.button-MULT,
+.button-9,
+.button-8,
+.button-7, 
+.button-6,
+.button-5,
+.button-4,
+.button-3,
+.button-2,
+.button-1 {
+    background-color: rgb(55,55,55);
+    border-style: solid;
+    border-color: white;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-radius: 15px;
+    margin-left: 15px; 
+    font-size: 35px;
+    font-weight: bold;   
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+button:hover {
+    background-color: rgb(77,77,77);
+}
+
+.row-1 {
+    transform: translate(550px,-750px);
+}
+.row-2 {
+    transform: translate(550px,-730px);
+}
+.row-3 {
+    transform: translate(550px,-710px);
+}
+.row-4 {
+    transform: translate(550px,-690px);
+}
+.calculator {
+    transform: translate(100px, -100px);
+}
+.output {
+    position: relative;
+    color: white;
+    left: 25px;
+    top: -10px;
+    font-weight: bold;
+    font-size: 45px;    
+    font-family: Arial;
+}
+.main {
+    transform: translate(-15px, 100px);
+}
+.button {
+    transform: translate(0, 225px);
+}

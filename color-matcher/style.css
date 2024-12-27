@@ -1,0 +1,458 @@
+body, html {
+    background-color: #a5e1f9;
+    overflow-x: hidden;
+    zoom: 150%;
+    transition: all 0.25s ease-out;
+}
+.information {
+    text-align: center;
+}
+.themes-heading {
+    font-family: "Fredoka";
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    background-color: #007BFF;
+    border: solid 3px #69b4ff;
+    grid-column: 2;
+}
+.heading {
+    font-family: "Fredoka";
+    background-color: white;
+    transform: translateX(75%);
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    background-color: #007BFF;
+    border: solid 3px #69b4ff;
+}
+.information-p {
+    background-color: #007BFF;
+    border-radius: 15px;
+    border: solid 3px #69b4ff;
+    max-width: 500px;
+    text-align: center;
+    padding: 10px;
+    transform: translateX(27.5%);
+    margin-bottom: 20px;
+}
+p {
+    font-family: "Fredoka";
+    font-weight: 500;
+    margin: 0;
+    max-width: 500px;
+    border-radius: 25px;
+    color: white;
+}
+.status {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 150px;
+    text-align: center;
+}
+.fails,
+.wins {
+    text-align: center;
+    background-color: #007BFF;
+    border: solid 3px #69b4ff;
+    border-radius: 15px;
+    color: white;
+    grid-column: 1;
+    max-width: 90px;
+    max-height: 20px;
+    padding: 15px;
+}
+.fails {
+    grid-column: 3
+}
+.sub-grid {
+    grid-row: 2;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1, 1fr, 1
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+    padding: 30px;
+    border-radius: 15px;
+    font-family: "Fredoka";
+    font-weight: 500;
+}
+button:hover {
+    transform:  scale(1.1)
+}
+.main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 20px;
+}
+.themes {
+    grid-row: 3;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+.player-grid,
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 230px;
+    max-height: 250px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid #69b4ff;
+}
+.player-grid {
+    grid-column: 3;
+}
+.footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.green-theme,
+.blue-theme,
+.red-theme,
+.next-button,
+.check-button {
+    background-color: #007BFF;
+    color: white;
+    font-size: 25px;
+    border: 3px solid #69b4ff;
+    grid-column: 2;
+    padding: 15px;
+}
+
+.blue-theme {
+    grid-column: 1;
+    margin-right: 0;
+}
+
+.red-theme {
+    grid-column: 2;
+    margin-left: 20px;
+    padding-left: 40px;
+    padding-right: 85px;    
+}
+
+.green-theme {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.blue-theme,
+.red-theme,
+.green-theme {
+    width: 100px;
+    height: 70px;
+    margin: 10px; /* Add margin to all */
+    grid-row: 2;
+    margin: 0 10px;
+    margin-bottom: 30px;
+}
+
+body.red, html.red {
+    background-color: #2C0E0E;
+    overflow-x: hidden;
+    zoom: 150%;
+    transition: all 0.25s ease-out;
+}
+.themes-heading.red {
+    font-family: "Fredoka";
+    padding: 10px;
+    border-radius: 15px;
+    color: #FFD1D1;
+    background-color: #B22222;
+    border: solid 3px #FF6347;
+    grid-column: 2;
+}
+.heading.red {
+    font-family: "Fredoka";
+    transform: translateX(75%);
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 15px;
+    color: #FFD1D1;
+    background-color: #B22222;
+    border: solid 3px #FF6347;
+}
+.information-p.red {
+    background-color: #B22222;
+    border-radius: 15px;
+    border: solid 3px #FF6347;
+    max-width: 500px;
+    text-align: center;
+    padding: 10px;
+    transform: translateX(27.5%);
+    margin-bottom: 20px;
+}
+p.red {
+    font-family: "Fredoka";
+    font-weight: 500;
+    margin: 0;
+    max-width: 500px;
+    border-radius: 25px;
+    color: #FFD1D1;
+}
+.fails.red,
+.wins.red {
+    text-align: center;
+    background-color: #B22222;
+    border: solid 3px #FF6347;
+    border-radius: 15px;
+    color: #FFD1D1;
+    grid-column: 1;
+    max-width: 90px;
+    max-height: 20px;
+    padding: 15px;
+}
+
+.fails.red {
+    grid-column: 3;
+}
+
+.player-grid.red,
+.grid.red {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 230px;
+    max-height: 250px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid #FF6347;
+}
+.player-grid.red {
+    grid-column: 3;
+}
+
+.green-theme.red,
+.blue-theme.red,
+.red-theme.red,
+.next-button.red,
+.check-button.red {
+    background-color: #B22222;
+    color: white;
+    font-size: 25px;
+    border: 3px solid #FF6347;
+    grid-column: 2;
+    padding: 15px;
+}
+
+.blue-theme.red {
+    grid-column: 1;
+    margin-right: 0;
+}
+
+.red-theme.red {
+    grid-column: 2;
+    margin-left: 20px;
+    padding-left: 40px;
+    padding-right: 85px;    
+}
+
+.green-theme.red {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.blue-theme.red,
+.red-theme.red,
+.green-theme.red {
+    width: 100px;
+    height: 70px;
+    margin: 10px; /* Add margin to all */
+    grid-row: 2;
+    margin: 0 10px;
+    margin-bottom: 30px;
+}
+
+body.green, html.green {
+    background-color: #66BB6A;
+    overflow-x: hidden;
+    zoom: 150%;
+    transition: all 0.25s ease-out;
+}
+
+.themes-heading.green {
+    font-family: "Fredoka";
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    background-color: #81C784;
+    border: solid 3px #2E7D32;
+    grid-column: 2;
+}
+.heading.green {
+    font-family: "Fredoka";
+    background-color: white;
+    transform: translateX(75%);
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    background-color: #81C784;
+    border: solid 3px #2E7D32;
+}
+.information-p.green {
+    background-color: #81C784;
+    border-radius: 15px;
+    border: solid 3px #2E7D32;
+    max-width: 500px;
+    text-align: center;
+    padding: 10px;
+    transform: translateX(27.5%);
+    margin-bottom: 20px;
+}
+.status {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 150px;
+    text-align: center;
+}
+.fails.green,
+.wins.green {
+    text-align: center;
+    background-color: #81C784;
+    border: solid 3px #2E7D32;
+    border-radius: 15px;
+    color: white;
+    grid-column: 1;
+    max-width: 90px;
+    max-height: 20px;
+    padding: 15px;
+}
+.fails.green {
+    grid-column: 3
+}
+
+.player-grid.green,
+.grid.green {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 230px;
+    max-height: 250px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid #2E7D32;
+}
+.player-grid.green {
+    grid-column: 3;
+}
+.green-theme.green,
+.blue-theme.green,
+.red-theme.green,
+.next-button.green,
+.check-button.green {
+    background-color: #81C784;
+    color: white;
+    font-size: 25px;
+    border: 3px solid #2E7D32;
+    grid-column: 2;
+    padding: 15px;
+}
+
+.blue-theme.green {
+    grid-column: 1;
+    margin-right: 0;
+}
+
+.red-theme.green {
+    grid-column: 2;
+    margin-left: 20px;
+    padding-left: 40px;
+    padding-right: 85px;    
+}
+
+.green-theme.green {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.blue-theme.green,
+.red-theme.green,
+.green-theme.green {
+    width: 100px;
+    height: 70px;
+    margin: 10px; /* Add margin to all */
+    grid-row: 2;
+    margin: 0 10px;
+    margin-bottom: 30px;
+}
+
+.white {
+    background-color: rgb(211, 209, 209);
+    color: rgb(211, 209, 209);
+}
+.blue-1 {
+    background-color: #87CEEB;
+    color: #87CEEB;
+}
+
+.blue-2 {
+    background-color: #00BFFF;
+    color: #00BFFF;
+}
+.blue-3 {
+    background-color: #4d96df;
+    color: #4d96df;
+}
+.blue-4 {
+    background-color: #007BFF;
+    color: #007BFF;
+}
+
+.red-1 {
+    background-color: #FF2400;
+    color: #FF2400;
+}
+.red-2 {
+    background-color: #DC143C;
+    color: #DC143C;
+}
+
+.red-3 {
+    background-color: #B22222;
+    color: #B22222;
+}
+
+.red-4 {
+    background-color: #800020;
+    color: #800020;
+}
+.green-1 {
+    background-color: #98FB98;
+    color: #98FB98;
+}
+
+.green-2 {
+    background-color: #32CD32;
+    color: #32CD32;
+}
+
+.green-3 {
+    background-color: #228B22;
+    color: #228B22;
+}
+
+.green-4 {
+    background-color: #006400;
+    color: #006400;
+}
