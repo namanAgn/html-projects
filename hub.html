@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Hub</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: "Fredoka", sans-serif;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card button {
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: none;
+            font-family: "Poppins", sans-serif;
+            font-size: 16px;
+            color: white;
+            background-color: #222;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="card">
+            <h1>Atlas</h1>
+            <p>A simple game that involves the player guessing a country based on a random letter</p>
+            <button onclick="s('atlas')">Atlas</button>
+        </div>
+        <div class="card">
+            <h1>C O I N S</h1>
+            <p>A game where you have to make a certain amount by clicking on coins of different denominations</p>
+            <button onclick="s('c-o-i-n-s')">C O I N S</button>
+        </div>
+        <div class="card">
+            <h1>Calculator</h1>
+            <p>A calculator with basic arithmetic functions</p>
+            <button onclick="s('calculator')">Calculator</button>
+        </div>
+        <div class="card">
+            <h1>CGPA Calculator</h1>
+            <p>A calculator that calculates the user's CGPA</p>
+            <button onclick="s('cgpa-calculator')">CGPA Calculator</button>
+        </div>
+        <div class="card">
+            <h1>City Thing</h1>
+            <p>A game of sorts where the player grows a city by purchasing houses, shops and workplaces</p>
+            <button onclick="s('city-grower')">City Grower</button>
+        </div>
+        <div class="card">
+            <h1>Color Matcher</h1>
+            <p>A game where the player has to click on tiles to change their colour and match a certain pattern</p>
+            <button onclick="s('color-matcher')">Color Match</button>
+        </div>
+        <div class="card">
+            <h1>Crypto Miner (WIP)</h1>
+            <p>A game where you click on a button to mine crypto and sell it for money</p>
+            <button onclick="s('crypto-miner-wip')">Crypto Miner</button>
+        </div>
+        <div class="card">
+            <h1>Emoji Combiner</h1>
+            <p>A very basic app where users can combine emojis to make a custom one</p>
+            <button onclick="s('emoji-maker')">Emoji Combiner</button>
+        </div>
+        <div class="card">
+            <h1>Crafting Game Thing</h1>
+            <p>An automation game which is one of my favourites</p>
+            <button onclick="s('factory 2')">Automation Game</button>
+        </div>
+        <div class="card">
+            <h1>Army Management Simulator</h1>
+            <p>A web-based implementation of my army management simulator which I have no motivation to complete</p>
+            <button onclick="s('factory')">Army Management Simulator</button>
+        </div>
+        <div class="card">
+            <h1>Gambling Coin Flip</h1>
+            <p>A simple game where you flip a coin and gain or lose half your money</p>
+            <button onclick="s('gambling')">Let's go gambling</button>
+        </div>
+        <div class="card">
+            <h1>Minimalist Google Redesign</h1>
+            <p>A minimalist redesign of Google's classic search page</p>
+            <button onclick="s('google-redesign')">Minimalist Google</button>
+        </div>
+        <div class="card">
+            <h1>Static Thing That Does Nothing</h1>
+            <p>An app that I can't really explain what it does</p>
+            <button onclick="s('i-dont-know')">Static Thing</button>
+        </div>
+        <div class="card">
+            <h1>Letter Counter</h1>
+            <p>A simple app that checks the amount of letters, vowels, and consonants</p>
+            <button onclick="s('letter-counter')">Letter Counter</button>
+        </div>
+        <div class="card">
+            <h1>Math Game</h1>
+            <p>A game where the player is given an operation between two numbers and they have to solve the equation</p>
+            <button onclick="s('math-game')">Math Game</button>
+        </div>
+        <div class="card">
+            <h1>Memory Game</h1>
+            <p>A simple game that challenges your memory by matching cards by flipping them</p>
+            <button onclick="s('memory-game')">Memory Game</button>
+        </div>
+        <div class="card">
+            <h1>Number System Converter</h1>
+            <p>A tool to convert between Decimal, Binary and Octal number systems</p>
+            <button onclick="s('number-system-convertor')">Number System Converter</button>
+        </div>
+        <div class="card">
+            <h1>OS (WIP)</h1>
+            <p>An OS that has basic functionality and is currently WIP</p>
+            <button onclick="s('os-wip')">OS WIP</button>
+        </div>
+        <div class="card">
+            <h1>Quote Generator</h1>
+            <p>A tool to generate quotes. This is one of my first projects</p>
+            <button onclick="s('quote-generator')">Quote Generator</button>
+        </div>
+        <div class="card">
+            <h1>School Student Application Page Redesign</h1>
+            <p>A redesign of the front-end of the login page of my school's website</p>
+            <button onclick="s('school-website-login')">School Website Redesign</button>
+        </div>
+        <div class="card">
+            <h1>Social Media Failure</h1>
+            <p>A front-end design for a social media app which I have no motivation to continue</p>
+            <button onclick="s('social-failure-2')">Social Failure</button>
+        </div>
+        <div class="card">
+            <h1>Social Media Failure</h1>
+            <p>A front-end design for a social media app which I have no motivation to continue</p>
+            <button onclick="s('social-failure')">Social Failure</button>
+        </div>
+        <div class="card">
+            <h1>Social Media Failure</h1>
+            <p>A front-end design for a social media app which I have no motivation to continue</p>
+            <button onclick="s('social-failure-3')">Social Failure</button>
+        </div>
+        <div class="card">
+            <h1>Spotify Redesign (WIP/Failure)</h1>
+            <p>A redesign of Spotify's UI</p>
+            <button onclick="s('spotify clone')">Spotify Clone</button>
+        </div>
+        <div class="card">
+            <h1>Stock Trader</h1>
+            <p>A simple game where you trade virtual stocks</p>
+            <button onclick="s('stock-trader')">Stock Trader</button>
+        </div>
+        <div class="card">
+            <h1>Temperature Converter</h1>
+            <p>A simple tool to convert temperatures between Celsius, Fahrenheit, and Kelvin</p>
+            <button onclick="s('temp-converter')">Temperature Converter</button>
+        </div>
+        <div class="card">
+            <h1>Text Transformer</h1>
+            <p>A tool to transform text: lower case, upper case, and title case</p>
+            <button onclick="s('text-transformer')">Text Transformer</button>
+        </div>
+    </div>
+
+    <script>
+        function s(href) {
+            window.location.href = `http://namanagn.github.io/html-projects/${href}/index.html`
+        }
+    </script>
+</body>
+</html>
