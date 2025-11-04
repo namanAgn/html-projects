@@ -1,0 +1,34 @@
+Mindset:
+You’re going mainly for exposure — to learn teamwork, manage stress, and see how hackathons flow. It’s not high stakes. Stay curious.
+
+Social approach:
+
+Don’t force fittingin. Observe first. Speak when it adds something. Be polite, focused, a bit witty.
+When unsure—ask simple clarifying questions (“should we divide by UI / backend / logic?”).
+Mirror their pace and tone instead of overcompensating.
+
+Team strategy:
+
+Suggest limiting scope so the site feels personal and easy to debug.
+Mention that clean, human-written code looks better to judges than AI spam.
+Offer to handle UI if they agree—it plays to your strengths.
+Keep commits organized, with short messages that explain purpose.
+
+Speaking & confidence:
+
+Swallow saliva every few minutes to avoid sticky mouth.
+Talk slowly, clearly; don’t rush to fill silence.
+Quiet + steady = confident.
+Light humor is fine once you sense comfort. Avoid edgy jokes early.
+
+Equipment & comfort:
+
+Use laptop keyboard—it’s enough for 4 hours.
+Bring charger, water, and maybe a small notepad for logic flow.
+
+Mental prep:
+
+Expect small awkward moments; don’t label them failures.
+Focus on what you can control—code, attitude, clarity.
+
+Sleep early. Don’t rehearse imaginary conversations.
