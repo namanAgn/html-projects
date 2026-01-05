@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="timer.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="timer-task-holder-wrapper">
+        <div class="timer-task-holder">
+            <div class="task-details">
+                <p class="subject task-detail">Maths</p>
+                <p class="spacer">·</p>
+                <p class="task task-detail">Algebra</p>
+                <p class="spacer">·</p>
+                <p class="quantity task-detail">20 questions</p>
+                <p class="spacer">·</p>
+                <p class="expected-duration task-detail">50 minutes</p>
+                <p class="spacer">·</p>
+                <p class="type  task-detail">Practicing</p>
+            </div>
+            <p class="main-time">00:00</p>
+            <div class="timer-controls">
+                <button class="pause" type="button">
+                    <img class="icon-swap" src="icons/play.svg" alt="Pause button">
+                </button>
+                <button class="add checkpoint">
+                    <img src="icons/goal.svg" alt="Pause button">
+                </button>
+                <button class="end">
+                    <img src="icons/stop.svg" alt="Pause button">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="timer.js"></script>
+</body>
+</html>

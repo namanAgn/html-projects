@@ -1,0 +1,102 @@
+Study + Habit Dashboard – Feature Summary
+Core Purpose
+
+Track study tasks and hobbies.
+
+Motivate consistent progress through points and accountability.
+
+Reinforce long-term habits and short-term experiments.
+
+Task System
+
+Study Tasks
+
+Each study task has a completion button.
+
+Tasks can be high-priority / highly rewarding → more points.
+
+Time spent studying tracked via timer → additional points based on duration.
+
+Types:
+
+Quick completion tasks (button press only)
+
+Form-based tasks (asks duration, ensures honesty for longer tasks)
+
+Hobbies
+
+Short-term: Temporary actions/events (e.g., sleep earlier for 1 week).
+
+Cannot edit/remove until completed X times.
+
+Points awarded for completion; points deducted for skipping.
+
+Long-term: Continuous habits (e.g., get fitter, daily 15 min with Giddu, outside once daily).
+
+Cannot remove/edit for minimum duration (e.g., 3 months).
+
+Points awarded for completion; points deducted for skipping.
+
+Each hobby has a button to mark completion.
+
+Points System
+
+Tasks and hobbies earn points when completed.
+
+High-priority / high-reward tasks earn more points.
+
+Duration-based tasks scale points by time logged via timer.
+
+Skipping mandatory tasks or failing to click buttons subtracts points.
+
+Daily points sum up to a day total → replaces “day efficiency” metric.
+
+Timers
+
+Start timer per task/hobby when working.
+
+Longer focused effort = more points.
+
+Encourages sustained focus, discourages drift.
+
+Task Enforcement Rules
+
+Short-term hobbies: must meet completion threshold to be editable or removable.
+
+Long-term hobbies: locked for set duration; skipping deducts points.
+
+Form-based tasks: app asks if user is genuine; logs duration if user confirms.
+
+UI / Interaction
+
+Study and hobby tasks displayed on dashboard (approx. 70/30 study/hobby).
+
+Buttons for completion next to each task.
+
+Points immediately updated upon completion.
+
+Timer displayed per task.
+
+Tasks can be tagged as high-priority/high-reward.
+
+Phase Planning
+
+Phase 1: Minimal working version
+
+Buttons for study/hobby completion
+
+Timer integration for points
+
+High-priority / high-reward tags
+
+Day points metric
+
+Phase 2 (Future):
+
+Form-based reporting for honesty & duration
+
+Short-term / long-term distinctions fully enforced
+
+Points deductions for skipping tasks
+
+Gamified feedback, visual radials, and popups

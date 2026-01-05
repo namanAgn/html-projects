@@ -1,0 +1,50 @@
+## 🧭 STEP 1 — In your local project folder
+
+Open your **terminal** inside your project folder:
+
+```bash
+cd path/to/your/project
+```
+
+---
+
+## 🧩 STEP 2 — Initialize and commit your files
+
+```bash
+git init
+git add .
+git commit -m "Initial commit for MyTown Explorer"
+```
+
+---
+
+## 🌐 STEP 3 — Connect to your existing GitHub repo
+
+Replace the URL below with **your repo’s URL**:
+
+```bash
+git remote set-url origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
+```
+
+---
+
+## 🧹 STEP 4 — Force push to overwrite the repo
+
+This is the key command 👇
+It will **delete all files on GitHub’s main branch** and replace them with yours:
+
+```bash
+git branch -M main
+git push -u origin main --force
+```
+
+---
+
+## ✅ STEP 5 — Confirm
+
+Go to your GitHub repo page and refresh.
+You’ll now see **only your local files** — everything old will be gone.
+
+---
+
+Would you like me to write a `.gitignore` specifically suited to your **MyTown Explorer** project (HTML/JS/CSS + assets + data JSON)?

@@ -1,0 +1,36 @@
+discord server(frre tha yaar, link par connect karo please):https://discord.gg/WGzPBwK5 
+PAGES:
+
+entry page ✓
+create account or sign in ✓
+sign in ✓
+sign up ✓
+medium pages ✓
+home page ✓
+map (imp) ✓
+browse people (imp) ✓
+upload image ✓
+profile ✓
+rewards (optional)
+leaderboards (optional)
+friends ✓
+
+PAGE FLOW:
+User sees posts from friends only. browse page serves as a place to find friends. if user uploads images, they get 10 points. certain amount of points = customization or rewards (optional for prototype). users can alsu use an ai (gpt-o4, grok (free edition), gemini vision etc.) to ask questions about certain posts. likes on posts (optional, but good). 1 like on post = 1 point. 1 follower/friend = 10. pointsusers cannot upload photos and can only capture photos with the camera. map to see where friends are, the location of their last post and highlighted monumenets (only for india, can be static). getting points can mean features are unlocked etc.
+
+COLOR SCHEME:
+
+darker green: rgba(7, 63, 57);
+lighter green rgba(69, 106, 102);
+intermediary: rgb(35, 100, 90);
+border: rgb(5, 44, 40);
+
+VERY IMP: 
+
+PRESENTATION REQUIREMENTS:
+
+Laptop/mini server/mini pc + monitor (server) (vansh, vardhaan, jastej)
+2+ mobile phones/devices (clients) (vardhaan (iball, raspberry), naman) 
+personal mobile phone (hotspot/personal wifi, network) (vardhaan, naman, priyansh)
+or 
+local wifi (school wifi, network)

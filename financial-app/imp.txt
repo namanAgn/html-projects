@@ -1,0 +1,23 @@
+labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        datasets: [
+        {
+            label: 'Income',
+            data: [400, 600, 500, 700, 650, 800],
+            borderColor: '#8ac926',
+            backgroundColor: gradientIncome,
+            tension: 0.4,
+            fill: true,
+            pointRadius: 0,
+            borderWidth: 2
+        },
+        {
+            label: 'Expense',
+            data: [1000, 850, 500, 600, 700, 650],
+            borderColor: '#ff595e',
+            backgroundColor: gradientExpense,
+            tension: 0.4,
+            fill: true,
+            pointRadius: 0,
+            borderWidth: 2
+        }
+        ]

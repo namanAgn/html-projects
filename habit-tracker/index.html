@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="homepage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="transparent closed">
+        <div class="add-week closed">
+            <div class="add-week-topper">
+                <h1>Add week</h1>
+                <button class="close-calendar">
+                    <img alt="Close" src="icons/close.svg">
+                </button>
+            </div>
+            <div class="calendar">
+                <div class="calendar-sub-holder">
+                    <div class="days">
+                        <p>S</p>
+                        <p>M</p>
+                        <p>T</p>
+                        <p>W</p>
+                        <p>T</p>
+                        <p>F</p>
+                        <p>S</p>
+                    </div>
+                    <div class="row">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                    </div>
+                    <div class="row">
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p>11</p>
+                        <p>12</p>
+                        <p>13</p>
+                        <p>14</p>
+                    </div>
+                    <div class="row">
+                        <p>15</p>
+                        <p>16</p>
+                        <p>17</p>
+                        <p>18</p>
+                        <p>19</p>
+                        <p>20</p>
+                        <p>21</p>
+                    </div>
+                    <div class="row">
+                        <p>22</p>
+                        <p>23</p>
+                        <p>24</p>
+                        <p>25</p>
+                        <p>26</p>
+                        <p>27</p>
+                        <p>28</p>
+                    </div>
+                    <div class="row">
+                        <p>29</p>
+                        <p>30</p>
+                        <p>31</p>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar-alt">
+                From <input placeholder="" class="from">
+            </div>
+            <button class="add-week-button">Add week</button>
+        </div>
+        <div class="week-management-panel closed">
+            <div class="week-details">
+                <div>
+                    <h2>Week Details</h2>
+                    <p>Week Start: <span>24/11/25</span></p>
+                    <p>Week End: <span>30/11/25</span></p>
+                    <p>Week Efficency: <span>0%</span></p>
+                </div>
+                <div class="week-details-right-div">
+                    <button class="close-week-management">
+                        <img src="icons/close.svg">
+                    </button>
+                </div>
+            </div>
+            <div class="week-controls">
+                <button class="move-up">Move <img src="icons/move-up.svg"> </button>
+                <button class="move-down">Move <img src="icons/move-down.svg"> </button>
+                <button class="delete-week">Delete Week <img src="icons/delete.svg"> </button>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="week-summary">
+            <h1>WEEK SUMMARY</h1>
+            <button class="week-addition"> <img alt="add" src="icons/add.svg"> Add Week</button>
+            
+        </div>
+        <div class="day-summary">
+            <h1>DAY SUMMARY</h1>
+
+            <div class="day-summary-main">
+                <div class="day-details">
+                    <p class="date">27 Nov 2025 <span class="day">Thursday</span></p>
+                    <p class="timelines">Week: <span class="week-amount">2</span>, Day: <span class="day-amount">5</span></p>
+                    <p class="score">Overall Score: <span class="week-amount">★★★★☆ (4/5)</span></p>
+                </div>
+                <div class="day-tasks">
+                    <h2>Tasks:</h2>
+                    <ul>
+                        <li><p><span class="day-tasks-subject">Maths</span> · Algebra · 20 qs · <span class="time-spent">50 min</span> · Practicin...</p></li>
+                        <li><p><span class="day-tasks-subject">Science</span> · Motion · 12 qs · <span class="time-spent">30 min</span> · Solving</p></li>
+                        <li><p><span class="day-tasks-subject">English</span> · Tenses · 3 pages · <span class="time-spent">25 min</span> · Learning</p></li>
+                        <li><p><span class="day-tasks-subject">Maths</span> · Circles · 15 qs · <span class="time-spent">40 min</span> · Practicin...</p></li>
+                        <li><p><span class="day-tasks-subject">Computer</span> · Python L... · 2 progs · <span class="time-spent">35 min</span> · Learning</p></li>
+                        <li><p><span class="day-tasks-subject">Hindi</span> · Sandhi · 4 pages · <span class="time-spent">45 min</span> · Practicin...</p></li>
+                        <li><p><span class="day-tasks-subject">Social</span> · Mughals · 1 chap · <span class="time-spent">60 min</span> · Learning</p></li>
+                        <li><p><span class="day-tasks-subject">Maths</span> · Mensurati... · 10 qs · <span class="time-spent">30 min</span> · Solving</p></li>
+                        <li><p class="last-subject"><span class="day-tasks-subject">Science</span> · Acids/B... · 8 qs · <span class="time-spent">25 min</span> · Practicin...</p></li>
+                        <p class="extras">and 5 more</p>
+                    </ul>
+                </div>
+                <div class="tommorrows-todo">
+                    <h2>Tomorrow TODOS:</h2>
+                    <ul>
+                        <li><p><span class="day-tasks-subject">Maths</span> · Algebra · Revise Ch-10</p> <div class="severity green"></div></li>
+                        <li><p><span class="day-tasks-subject">Science</span> · Motion · Review notes</p> <div class="severity green"></div></li>
+                        <li><p><span class="day-tasks-subject">English</span> · Tenses · Quick practice</p> <div class="severity yellow"></div></li>
+                        <li><p><span class="day-tasks-subject">Hindo</span> · Sandhi · Revise pages</p> <div class="severity red"></div></li>
+                        <li><p><span class="day-tasks-subject">Computers</span> · Python L... · Review programs</p> <div class="severity yellow"></div></li>
+                        <li><p><span class="day-tasks-subject">Social</span> · Mughals · Review maps</p> <div class="severity red"></div></li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <h2>Notes:</h2>
+                    <p class="user-entered-notes">Missed out on literature. Please revise all word meanings soon.</p>
+                </div>
+            </div>
+        </div>
+        <div class="day-metrics">
+            <h1>HABITS</h1>
+
+            <h2>Academic Metrics</h2>
+            <ul>
+                <li>Race Practice / Tunnel Drills · <span class="metric-score">0%</span></li>
+                <li>Guitar Finger Endurance · <span class="metric-score">0%</span></li>
+                <li>Strength / Pushups / Squats · <span class="metric-score">0%</span></li>
+                <li>Flexibility / Mobility · <span class="metric-score">0%</span></li>
+            </ul>
+
+            <h2>Athletic Metrics</h2>
+            <ul>
+                <li>Study Focus / Deep Work · <span class="metric-score">0%</span></li>
+                <li>Creative Writing / Problem Solving · <span class="metric-score">0%</span></li>
+                <li>Reflection & Journaling · <span class="metric-score">0%</span></li>
+            </ul>
+
+            <h2>Habit Metrics</h2>
+            <ul>
+                <li>Hydration · <span class="metric-score">0%</span></li>
+                <li>Sleep / Rest · <span class="metric-score">0%</span></li>
+                <li>Diet & Nutrition · <span class="metric-score">0%</span></li>
+                <li>Posture & Grooming · <span class="metric-score">0%</span></li>
+            </ul>
+        </div>
+        <div class="custom-cursor"></div>
+    
+        <div class="radial-holder">
+            <div class="radial">
+            <svg viewBox="0 0 100 100" class="radial-svg" style="--value: 5;">
+                <circle class="track" cx="50" cy="50" r="45"></circle>
+                <circle class="progress" cx="50" cy="50" r="45"></circle>
+            </svg>
+
+            <svg viewBox="0 0 100 100" class="radial-svg-inner" style="--value: 38;">
+                <circle class="track" cx="50" cy="50" r="40"></circle>
+                <circle class="progress" cx="50" cy="50" r="40"></circle>
+            </svg>
+
+            <div class="label">
+                <div>
+                    <div class="time-studied-heading">Time studied</div>
+                    <div class="time-studied">3:42</div>
+                    <div class="studied-time-sub-div">
+                        <p class="goal-time">/5:00 </p>
+                        <p class="time-studied-percentage">74%</p>
+                    </div>
+                </div>
+                <div class="day-efficency-div">
+                    <div class="day-efficency-heading">Day Efficency</div>
+                    <div class="day-efficency-percentage">48%</div>
+                    <div class="goal-efficency-sub-div">                 
+                        <p class="goal-efficency">/100%</p>
+                        <p class="goal-efficency-net">+4%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- DOM ELEMENTS ---
+    const cursor = document.querySelector('.custom-cursor');
+    const weekHolder = document.querySelector('.week-summary');
+    const addWeekButton = document.querySelector(".add-week-button");
+    const fromInput = document.querySelector('input.from');
+    const addWeekPanel = document.querySelector('.add-week');
+    const transparent = document.querySelector('.transparent');
+    const closeCalendar = document.querySelector('.close-calendar');
+    const addWeekMain = document.querySelector('.week-addition');
+
+    // --- CURSOR & WASD LOGIC ---
+    let logicalX = window.innerWidth / 2;
+    let logicalY = window.innerHeight / 2;
+    let cursorX = logicalX;
+    let cursorY = logicalY;
+    const weight = 0.1;
+    const speed = 450;
+    const keys = { w: false, a: false, s: false, d: false, ArrowUp: false, ArrowDown: false };
+
+    document.addEventListener('mousemove', e => {
+        logicalX = e.clientX;
+        logicalY = e.clientY;
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+        if(keys.hasOwnProperty(e.key)) keys[e.key] = true;
+        if(e.key === ' ') {
+            e.preventDefault();
+            simulateClick(logicalX, logicalY);
+        }
+    });
+    document.addEventListener('keyup', e => {
+        if(keys.hasOwnProperty(e.key)) keys[e.key] = false;
+    });
+
+    function updateCursor() {
+        // --- WASD movement ---
+        let dx = 0, dy = 0;
+        if(keys.w) dy -= 1;
+        if(keys.s) dy += 1;
+        if(keys.a) dx -= 1;
+        if(keys.d) dx += 1;
+        if(dx!==0||dy!==0){
+            const len = Math.hypot(dx, dy) || 1;
+            logicalX += (dx/len) * speed * 0.016;
+            logicalY += (dy/len) * speed * 0.016;
+            logicalX = Math.max(0, Math.min(window.innerWidth, logicalX));
+            logicalY = Math.max(0, Math.min(window.innerHeight, logicalY));
+        }
+
+        // --- Smooth custom cursor ---
+        cursorX += (logicalX - cursorX) * weight;
+        cursorY += (logicalY - cursorY) * weight;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+
+        // --- Arrow scrolling ---
+        if(keys.ArrowUp) window.scrollBy(0, -10);
+        if(keys.ArrowDown) window.scrollBy(0, 10);
+
+        requestAnimationFrame(updateCursor);
+    }
+    requestAnimationFrame(updateCursor);
+
+    function simulateClick(x, y){
+        const el = document.elementFromPoint(x, y);
+        if(!el) return;
+
+        if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable){
+            el.focus();
+            if(el.select) el.select();
+        } else {
+            el.click();
+        }
+
+        // --- visual feedback ---
+        const indicator = document.createElement('div');
+        indicator.style.position = 'fixed';
+        indicator.style.left = x+'px';
+        indicator.style.top = y+'px';
+        indicator.style.width = '12px';
+        indicator.style.height = '12px';
+        indicator.style.border = '2px solid #00f';
+        indicator.style.borderRadius = '50%';
+        indicator.style.transform = 'translate(-50%, -50%) scale(1)';
+        indicator.style.opacity = '0.8';
+        indicator.style.pointerEvents = 'none';
+        indicator.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
+        document.body.appendChild(indicator);
+        requestAnimationFrame(() => {
+            indicator.style.transform = 'translate(-50%, -50%) scale(2)';
+            indicator.style.opacity = '0';
+        });
+        setTimeout(()=>indicator.remove(), 200);
+    }
+
+    // --- WEEK MANAGEMENT ---
+    function formatDate(date) {
+        const dd = String(date.getDate()).padStart(2,'0');
+        const mm = String(date.getMonth()+1).padStart(2,'0');
+        const yy = String(date.getFullYear()).slice(-2);
+        return `${dd}/${mm}/${yy}`;
+    }
+
+    function generateDayMinis(startDate) {
+        let days = [];
+        for(let i=0;i<7;i++){
+            const d = new Date(startDate);
+            d.setDate(d.getDate()+i);
+            days.push(`<div class="day-mini" data-full-date="${d.toISOString()}">${d.getDate()}</div>`);
+        }
+        return days.join('');
+    }
+
+    function saveWeeks(){
+        const weeks = [];
+        document.querySelectorAll('.week-smarter').forEach(weekEl=>{
+            const dayMini = weekEl.querySelector('.day-mini');
+            if(dayMini) weeks.push({startDate: dayMini.dataset.fullDate});
+        });
+        localStorage.setItem('weeks', JSON.stringify(weeks));
+    }
+
+    function addWeek(startDateObj, save=true){
+        const startDate = new Date(startDateObj);
+        const endDate = new Date(startDate);
+        endDate.setDate(endDate.getDate()+6);
+
+        const html = `
+        <div class="week-smarter">
+            <div class="week-top">
+                <div class="week-controls">
+                    <p class="week-dates">
+                        <span class="week-dates-dates">${formatDate(startDate)} - ${formatDate(endDate)}</span> / 
+                        <span class="week-efficency">0%</span>
+                    </p>
+                    <div class="week-buttons">
+                        <button class="week-management"><img src="icons/triple-selector.svg"></button>
+                        <button class="week-dropdown"><img src="icons/drop-down.svg" class="rotated"></button>
+                    </div>
+                </div>
+                <div class="week">
+                    <div><div class="divider"></div></div>
+                    <div class="week-holder">${generateDayMinis(startDate)}</div>
+                </div>
+            </div>
+        </div>`;
+        weekHolder.insertAdjacentHTML('beforeend', html);
+        if(save) saveWeeks();
+    }
+
+    function loadWeeks(){
+        const saved = JSON.parse(localStorage.getItem('weeks')||'[]');
+        saved.forEach(data=>addWeek(new Date(data.startDate), false));
+    }
+
+    addWeekButton.addEventListener('click', ()=>{
+        const val = fromInput.value.trim();
+        if(!val) return alert("Enter date dd/mm/yy");
+        const match = val.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
+        if(!match) return alert("Invalid format");
+        let [_,dd,mm,yy]=match;
+        dd=parseInt(dd); mm=parseInt(mm)-1; yy=2000+parseInt(yy);
+        const startDate = new Date(yy,mm,dd);
+        addWeek(startDate);
+        fromInput.value='';
+        addWeekPanel.classList.add('closed');
+        transparent.classList.add('closed');
+    });
+
+    loadWeeks();
+
+    // --- PANEL TOGGLE ---
+    addWeekMain.addEventListener('click', ()=>{
+        addWeekPanel.classList.toggle('closed');
+        transparent.classList.toggle('closed');
+    });
+    closeCalendar.addEventListener('click', ()=>{
+        addWeekPanel.classList.add('closed');
+        transparent.classList.add('closed');
+    });
+
+    // --- WEEK DROPDOWN ---
+    weekHolder.addEventListener('click', e=>{
+        const btn = e.target.closest('.week-dropdown');
+        if(!btn) return;
+        const weekRow = btn.closest('.week-top').querySelector('.week');
+        weekRow.classList.toggle('collapsed');
+        btn.querySelector('img').classList.toggle('rotated');
+    });
+});
+
+    </script>
+</body>
+</html>

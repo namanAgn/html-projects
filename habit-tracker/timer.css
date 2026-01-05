@@ -1,0 +1,130 @@
+:root {
+  --bg-main: #0A0710;            /* Near-black with a purple undertone */
+  --bg-card: #1A1326;            /* Cards, inputs, panels */
+
+  --accent: #6A3DFF;             /* Primary purple accent */
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #C7C0D9;
+  --text-muted: #8E869C;
+
+  --btn-bg: #1F1533;
+  --btn-bg-hover: #191129;
+  --btn-bg-active: #2c1a47;
+  
+  --failure-btn-hover: #331515;
+  --failure-text: #ffc8c8; 
+  --btn-bg-failure: #471a1a;
+
+  --success-btn-hover: #1b3315;
+  --success-text: #c8ffcb; 
+  --btn-bg-success: #1a471e;
+  
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 12px var(--accent-glow);
+
+  --timer-text: #D4C8FF; 
+  --timer-paused: #8F78C9; 
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    font-family: "Inter";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-time {
+    margin: 0;
+    color: var(--timer-text);
+    font-size: 200px;
+    font-weight: 800;
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.15));
+}
+
+button {
+    background-color: var(--btn-bg-active);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 2.5px;
+}
+
+.end {
+    background-color: var(--btn-bg-failure);
+}
+
+.end:hover {
+    scale: 1.1;
+    background-color: var(--failure-btn-hover);
+}
+
+.pause {
+    background-color: var(--btn-bg-success);
+}
+
+.pause:hover {
+    scale: 1.1;
+    background-color: var(--success-btn-hover);
+}
+
+button:hover {
+    scale: 1.1;
+    background-color: var(--btn-bg);
+}
+
+button img {
+    width: 50px;
+}
+
+.task-details {
+    color: var(--text-secondary);
+    display: flex;
+    gap: 10px;
+}
+
+.task-detail {
+    font-weight: bolder;
+}
+
+.icon-swap {
+    transition: opacity 0.15s ease;
+    opacity: 1;
+}
+.icon-swap.hidden {
+    opacity: 0;
+    margin: 0;
+}
+
+.timer-task-holder {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 10px;
+    border: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.timer-task-holder-wrapper {
+    background: linear-gradient(to right, var(--timer-paused), var(--accent));
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.icon-swap {
+    transition: opacity 0.15s ease;
+    opacity: 1;
+}
+
+.icon-swap.hidden {
+    opacity: 0;
+}

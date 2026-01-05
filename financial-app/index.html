@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fimeownce</title>
+    <link rel="stylesheet" href="styles/style.css"> 
+    <link rel="stylesheet" href="styles/cards/balance-summary.css"> 
+    <link rel="stylesheet" href="styles/cards/budget-status.css"> 
+    <link rel="stylesheet" href="styles/cards/middle-row.css"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Varela&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Varela&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-holder">
+            <img src="assets/images/logo.png" class="logo" alt="finance-app">
+            <h2>Finance App</h2>
+        </div>
+        <div class="top-spacer"></div>
+        <div class="sidebar-container overview active">
+            <img alt="overview" src="assets/icons/overview.svg">
+            <h3>OVERVIEW</h3>
+        </div>
+        <div class="sidebar-container expenses">
+            <img alt="expenses" src="assets/icons/expenses.svg">
+            <h3>EXPENSES</h3>
+        </div>
+        <div class="sidebar-container income">
+            <img alt="income" src="assets/icons/income.svg">
+            <h3>INCOME</h3>
+        </div>
+        <div class="sidebar-container bills">
+            <img alt="bills" src="assets/icons/bills.svg">
+            <h3>BILLS</h3>
+        </div>
+        <div class="profile">
+            <div class="profile-img-holder">
+                <img class="profile-img" src="assets/images/profile.png" alt="profile-picture">
+                <div>
+                    <h4 class="username">JasQai Dev</h4> 
+                    <h4 class="@-username">@jasqai</h4> 
+                </div>
+                <img class="dropdown" src="assets/icons/down.svg" alt="dropdown"> 
+            </div>
+        </div>
+    </div>
+    <div class="main-holder">
+        <div class="top-bar">
+            <div class="stats-holder">
+                <div class="summary-chip">
+                    <p class="balance">₹42,300</p>
+                    <p class="balance-status negative">↓4%</p>
+                </div>
+                <div class="clock">
+                    <img src="assets/icons/clock.svg" alt="clock">
+                        10:00
+                </div>
+                <div class="settings">
+                    <img src="assets/icons/settings.svg" alt="settings">
+                </div>
+            </div>
+        </div>
+        <div class="main-grid">
+            <div class="grid">
+                <div class="balance-summary card">
+                    <div class="heading-holder">
+                        <h1 class="balance-summary-heading">Balance Summary</h1>
+                        <div class="average-holder">
+                            <div>
+                                <p class="average-surplus">Average Surplus:  <span>+₹600</span></p>
+                            </div>
+                            <div>
+                                <p class="average-profit">Average Income: <span>₹1,400</span></p>
+                            </div>
+                            <div>
+                                <p class="average-expense">Average Expense: <span>₹800</span></p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="mini-forecast">
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+
+                    <div class="headings">
+                        <div>
+                            <p>Income:</p>
+                            <p class="income-span">₹5,600</p>
+                        </div>
+                        <div>
+                            <p>Expense:</p>
+                            <p class="expense-span">₹3,200</p>
+                        </div>
+                        <div>
+                            <label for="graph-selection">Graph: </label>
+                            <select class="graph-selection" id="graph-selection">
+                                <option value="line">Line Graph</option>
+                                <option value="bar">Bar Graph</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="time-selection">Last:</label>
+                            <select class="time-selection" id="time-selection">
+                                <option value="week">6 days</option>
+                                <option value="month">6 weeks</option>
+                                <option value="months">6 months</option>
+                                <option value="year">1 year</option>
+                                <option value="years">6 years</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="budget-status card">
+                    <h1>Savings Status</h1>
+                    <div class="budget-chart-holder">
+                        <canvas id="budgetChart"></canvas>
+                        <div class="chart-center-text">
+                            Saving goal<br><span>₹1,650</span>
+                        </div>
+                    </div>
+
+                    <div class="legend-balance-holder">
+                        <div class="legend">
+                            <div class="category-1">
+                                <p>Laptop: <span class="wrapper-2"><span class="wrapper-1">₹342</span>/70%</span></p>
+                                <div class="progress-bar1"><div class="current-progress1"></div></div>
+                            </div>
+                            <div class="category-2">
+                                <p>Personal: <span class="wrapper-2"><span class="wrapper-1">₹482</span>/63%</span></p>
+                                <div class="progress-bar2"><div class="current-progress2"></div></div>
+                            </div>
+                            <div class="category-3">
+                                <p>Insurance: <span class="wrapper-2"><span class="wrapper-1">₹500</span>/100%</span></p>
+                                <div class="progress-bar3"><div class="current-progress3"></div></div>
+                            </div>
+                            <div class="category-4">
+                                <p>Emergency: <span class="wrapper-2"><span class="wrapper-1">₹123</span>/21%</span></p>
+                                <div class="progress-bar4"><div class="current-progress4"></div></div>
+                            </div>
+                            <div class="category-5">
+                                <p>Other: <span class="wrapper-2"><span class="wrapper-1">₹311</span>/49%</span></p>
+                                <div class="progress-bar5"><div class="current-progress5"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertical-bar card">
+                    <p class="goal">₹1,650</p>
+                    <div class="bar-1">
+                        <div class="bar-1-progress"></div>
+                    </div>
+                    <p class="current">₹1,100</p>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="activity-feed card">
+                    <h1>Activity feed</h1>
+                    <ol>
+                        <li>Pineapples: <span class="expense">-₹230</span></li>
+                        <li>Triangles: <span>+₹480</span></li>
+                        <li>Candles: <span class="expense">-₹100</span></li>
+                        <li>Candles: <span class="expense">-₹100</span></li>
+                        <li>Salary: <span>+₹4,000</span></li>
+                        <li>Pineapple Sticks: <span class="expense">-₹230</span></li>
+                    </ol>
+                    <div>
+                        <p class="average-spenditure">Last transactions:</p>
+                        <p class="average-spenditure"><span>+₹3,840</span></p>
+                    </div>
+                </div>
+                <div class="upcoming-bills card">
+                    <h1>Upcoming bills</h1>
+                    <div class="category-bill-1">
+                        <div class="extra extra-1">Due very soon ⚠️</div>
+                        <div class="status status-1"></div>
+                        <p class="name">Electricity: <span>₹1,100</span></p>
+                        <p class="time time-1">2 days</p>
+                    </div>
+                    <div class="category-bill-2">
+                        <div class="extra extra-2">Overdue‼️</div>
+                        <div class="status status-2"></div>
+                        <p class="name">Water: <span>₹1,100</span></p>
+                        <p class="time time-2">3 days ago</p>
+                    </div>
+                    <div class="category-bill-3">
+                        <div class="extra extra-3">Due soon ✅</div>
+                        <div class="status status-3"></div>
+                        <p class="name">Insurance: <span>₹1,100</span></p>
+                        <p class="time time-3">7 days</p>
+                    </div>
+                    <div class="category-bill-4">
+                        <div class="extra extra-4">Due soon ✅</div>
+                        <div class="status status-4"></div>
+                        <p class="name">Loan: <span>₹1,100</span></p>
+                        <p class="time time-4">2 months</p>
+                    </div>
+                </div>
+                <div class="quick-actions card">
+                    <h1>Quick Actions</h1>
+                    <div class="actions-wrapper-1">
+                        <div>
+                            <p>Money actions</p>
+                            <button class="add-expense">
+                                <img src="assets/quick-actions-icons/add-expense.svg" alt="add-expense">
+                                ADD EXPENSE
+                            </button>
+                            <button class="add-income">
+                                <img src="assets/quick-actions-icons/add-income.svg" alt="add-expense">
+                                ADD INCOME
+                            </button>
+                            <button class="update-goal">
+                                <img src="assets/quick-actions-icons/update-goal.svg" alt="add-expense">
+                                UPDATE GOAL
+                            </button>
+                            <button class="add-goal">
+                                <img src="assets/quick-actions-icons/add-goal.svg" alt="add-expense">
+                                ADD GOAL
+                            </button>
+                            <button class="update-savings">
+                                <img src="assets/quick-actions-icons/add-savings.svg" alt="add-expense">
+                                UPDATE SAVINGS
+                            </button>
+                            <button class="add-savings">
+                                <img src="assets/quick-actions-icons/update-savings.svg" alt="add-expense">
+                                ADD SAVINGS
+                            </button>
+                        </div>
+                        <div>
+                            <p>Utilities</p>
+                            <button class="export-data">
+                                <img src="assets/quick-actions-icons/export-data.svg" alt="add-expense">
+                                EXPORT DATA
+                            </button>
+                            <button class="dark-mode">
+                                <img src="assets/quick-actions-icons/dark-mode.svg" alt="add-expense">
+                                DARK MODE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-insights card">
+                    <h1>AI Insights</h1>
+                    <div class="ai-profile-holder">
+                        <div class="ai-profile-img"></div>
+                        <p class="ai-name">AI assistant</p>
+                    </div>
+                    <div class="ai-text-container">
+                        <span class="ai-output" id="aiOutput"><div class="cursor"></div></span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="stacked">
+                    <div class="shortcuts card">
+                        <div class="shortcuts-heading-holder">
+                            <h1>Shortcuts</h1>
+                        </div>
+                        <div class="shortcut">
+                            <img src="assets/logos/google.png">
+                        </div>
+                        <div class="shortcut">
+                            <img src="assets/logos/gmail.svg">
+                        </div>
+                        <div class="shortcut">
+                            <img src="assets/logos/googlepay.webp">
+                        </div>
+                        <div class="shortcut">
+                            <img src="assets/logos/perplexity.png">
+                        </div>
+                        <div class="shortcut">
+                            <img src="assets/logos/spotify.png">
+                        </div>
+                        <div class="shortcut">
+                            <img src="assets/logos/groww.png">
+                        </div>
+                    </div>
+                    <div class="search card">
+                        <div class="search-heading-holder">
+                            <h1>Search</h1>
+                        </div>
+                        <div class="input">
+                            <img src="assets/icons/search.svg" class="search-button">
+                            <input type="text" class="search-search" placeholder="Search for anything...">
+                        </div>
+                    </div>
+                </div>
+                <div class="assets-overview card"></div>
+                <div class="financial-updates card"></div>
+                <div class="crpyto card"></div>
+                <div class="weather card"></div>
+            </div>
+        </div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/resize.js"></script>
+    <script src="scripts/typeeffect.js"></script>
+    <script src="scripts/graph.js"></script>
+    <script src="scripts/graph2.js"></script>
+</body>
+</html>
