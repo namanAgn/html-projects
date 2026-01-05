@@ -221,8 +221,12 @@
 
     <script>
         function s(href) {
-            window.open = (`http://namanagn.github.io/html-projects/${href}/index.html`, "_blank")
-        }
+            window.open(
+                `https://namanagn.github.io/html-projects/${encodeURIComponent(href)}/index.html`,
+                "_blank"
+            );
+        }   
     </script>
 </body>
 </html>
+
