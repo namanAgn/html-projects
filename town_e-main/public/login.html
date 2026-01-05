@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTown Explorer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: "Poppins", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: #F8F4EC; /* soft paper */
+      color: #3F2F23;
+    }
+
+    h1 {
+      color: #3F2F23;
+    }
+
+    .background-holder {
+      display: flex;
+      flex-direction: column;
+      background-color: #F8F4EC;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    
+    .content-holder {
+      background-color: #EDE4D6; /* soft beige contrast */
+      width: 100vw;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-top: 3.5px solid #D7CCBB;
+    }
+
+    .content-holder p {
+      color: #5A4736;
+      margin: 0;
+    }
+
+    .content-holder h1 {
+      margin-bottom: 0px;
+      margin-top: 15px;
+    }
+    .topbar {
+      height: fit-content;
+    }
+    .logo-holder {
+      margin-top: 100px;
+      margin-bottom: 50px;
+      height: auto;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back-holder {
+      background: none;
+      border: none;
+      height: fit-content;
+      width: fit-content;
+      padding: 0;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .back {
+      background-color: #E3D9C9;
+      border: 2.5px solid #C3B59F;
+      border-radius: 8px;
+      padding: 8px;
+      width: 45px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .back:hover {
+      background-color: #D6C8B1;
+    }
+
+    .logo {
+      border-radius: 30px;
+      height: 220px;
+      width: 220px;
+      border:#D7CCBB 7px solid;
+    }
+
+    .login-heading {
+      font-size: 55px;
+      color: #3F2F23;
+    }
+
+    .login-subheading {
+      font-size: 18px;
+      color: #7B6A5E;
+    }
+
+    input {
+      border: none;
+      background-color: #455A66;
+      color: #F8F4EC;
+      margin: 12px 0;
+      padding: 14px 16px;
+      font-size: 18px;
+      border-radius: 12px;
+      width: 250px;
+      transition: 0.25s;
+    }
+
+    input::placeholder {
+      color: #F8F4EC;
+      font-family: "Poppins";
+      font-size: medium;
+      border-radius: 15px;
+    }
+
+    input:focus {
+      outline: none;
+      background-color: #3F2F23;
+    }
+
+    .text-holder {
+      margin-top: 20px; 
+      text-align: left;
+    }
+
+    .text-holder p {
+      margin: 0px;
+      font-weight: 500;
+      color: #5A4736;
+    }
+
+    button {
+      border-radius: 10px;
+      width: 280px;
+      padding: 14px;
+      margin: 15px;
+      font-size: 20px;
+      font-weight: 600;
+      background-color: #3F2F23;
+      color: #F8F4EC;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5A4736;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-holder">
+    <div class="topbar">
+      <button class="back-holder" onclick="Back()" type="button">
+        <img class="back" src="assets/images/back.png" alt="back-arrow">
+      </button>
+    </div>
+
+    <div class="logo-holder">
+      <img class="logo" src="assets/images/logo.png" alt="town-explorer">
+    </div>
+
+    <div class="content-holder">
+      <h1 class="login-heading">Log in</h1>
+      <p class="login-subheading">Sign in to continue.</p>
+      <div class="text-holder">
+        <p>USERNAME</p>
+        <input type="text" placeholder="Enter username" class="username-input">
+        <p>PASSWORD</p>
+        <input type="password" placeholder="Enter password" class="password-input">
+      </div>
+      <button class="login-button">Log In</button>
+    </div>
+  </div>
+
+  <script>
+    function Back() {
+      window.location.href = "entrypage.html"
+    }
+    
+    const loginButton = document.querySelector(".login-button")
+    const usernameInput = document.querySelector(".username-input");
+    const passwordInput = document.querySelector(".password-input");
+
+    loginButton.addEventListener("click", async () => {
+      try {
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value;
+
+        const response = await fetch("data/users.json");
+        const users = await response.json();
+
+        if (!username) {
+          alert("Please enter a username")
+        }
+        else if (!users[username]) {
+          alert("No account exists with this username")
+        }
+        else if (!password) {
+          alert("Please enter a password")
+        }
+        else if (users[username].username === username && users[username].password === password) {
+          alert("Signed in successfully! Welcome!");
+          localStorage.setItem("username", JSON.stringify(username));
+          window.location.href = "mediumOLD.html"
+        }
+      }
+      catch (error) {
+        console.warn("Error: ", error)
+      }
+    });
+  </script>
+</body>
+</html>

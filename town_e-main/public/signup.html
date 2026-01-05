@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTown Explorer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #F8F4EC; /* main paper background */
+  color: #3F2F23;
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #3F2F23; /* heading */
+}
+
+/* --- Background area --- */
+.background-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #F8F4EC; /* background soft paper */
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- Topbar / back button --- */
+.logo-holder {
+      margin-top: 100px;
+      margin-bottom: 50px;
+      height: auto;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back-holder {
+      background: none;
+      border: none;
+      height: fit-content;
+      width: fit-content;
+      padding: 0;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .back {
+      background-color: #E3D9C9;
+      border: 2.5px solid #C3B59F;
+      border-radius: 8px;
+      padding: 8px;
+      width: 45px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .back:hover {
+      background-color: #D6C8B1;
+    }
+
+/* --- Logo area --- */
+.logo-holder {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  border-radius: 30px;
+  height: 220px;
+  width: 220px;
+  border:#D7CCBB 7px solid;
+}
+
+/* --- Main login/signup panel --- */
+.content-holder {
+  background-color: #EDE4D6; /* soft beige panel */
+  width: 100vw;
+  height: auto;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-top: 3.5px solid #D7CCBB; /* light tan border top */
+}
+
+.content-holder h1 {
+  margin-bottom: 0px;
+  margin-top: 15px;
+  color: #3F2F23;
+}
+
+.content-holder p {
+  color: #5A4736; /* muted text */
+  margin: 0;
+}
+
+.login-heading {
+  font-size: 55px;
+  color: #3F2F23;
+}
+
+.login-subheading {
+  font-size: 18px;
+  color: #7B6A5E;
+}
+
+/* --- Input fields --- */
+    input {
+      border: none;
+      background-color: #455A66;
+      color: #F8F4EC;
+      margin: 12px 0;
+      padding: 14px 16px;
+      font-size: 18px;
+      border-radius: 12px;
+      width: 250px;
+      transition: 0.25s;
+    }
+
+    input::placeholder {
+      color: #F8F4EC;
+      font-family: "Poppins";
+      font-size: medium;
+      border-radius: 15px;
+    }
+
+    input:focus {
+      outline: none;
+      background-color: #3F2F23;
+    }
+
+.text-holder {
+  margin-top: 20px; 
+  text-align: left;
+}
+
+.text-holder p {
+  margin: 0px;
+  font-weight: 500;
+  color: #5A4736;
+}
+
+/* --- Action buttons --- */
+button.signup-button,
+button.login-button {
+  border-radius: 10px;
+  width: 280px;
+  padding: 14px;
+  margin: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #3F2F23;
+  color: #F8F4EC;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button.signup-button:hover,
+button.login-button:hover {
+  background-color: #5A4736;
+}
+
+/* --- Profiles section --- */
+.profiles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profiles h1 {
+  color: #3F2F23;
+}
+
+.profile-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 15px;
+  padding: 10px;
+  width: 90vw;
+  justify-content: flex-start;
+}
+
+.profile-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.profile-grid::-webkit-scrollbar-thumb {
+  background-color: #D7CCBB;
+  border-radius: 4px;
+}
+
+.profile-grid button.profile {
+  padding: 0;
+  margin: 7px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%;
+  background-color: #EDE4D6;
+  border: none;
+  transition: 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.profile-grid button.selected img {
+  border: 10px solid #5A4736;
+  transform: scale(1.08);
+  transition: all 0.2s ease-out;
+}
+
+/* Profile images */
+.profiles img {
+  height: 125px;
+  width: 125px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #5A4736;
+  background: none;
+}
+
+/* Remove extra profile2, profile3 etc classes */
+
+    </style>
+</head>
+<body>
+    <div class="background-holder">
+        <div class="topbar">
+            <button class="back-holder" onclick="Back()" type="title">
+                <img class="back" src="assets/images/back.png" alt="back-arrow">
+            </button>
+        </div>
+        <div class="logo-holder">
+            <img class="logo" src="assets/images/logo.png" alt="town-explorer">
+        </div>
+        <div class="content-holder">
+            <h1 class="login-heading">Sign up</h1>
+            <p class="login-subheading">Sign up to continue.</p>
+            <div class="text-holder">
+                <p>USERNAME</p>
+                <input type="text" placeholder="Enter username" class="username-input">
+                <p>PASSWORD</p>
+                <input type="password" placeholder="Enter password" class="password-input">
+            </div>
+            <button class="signup-button">Sign up</button>
+            <div class="profiles">
+                <h1>Select a profile picture</h1>
+                <div class="profile-grid">
+                    <button class="profile1 profile">
+                        <img src="assets/profiles/profile1.jpg" alt="profile1">
+                    </button>
+                    <button class="profile2 profile">
+                        <img src="assets/profiles/profile2.jpg" alt="profile2">
+                    </button>
+                    <button class="profile3 profile">
+                        <img src="assets/profiles/profile3.jpg" alt="profile3">
+                    </button>
+                    <button class="profile4 profile">
+                        <img src="assets/profiles/profile4.jpg" alt="profile4">
+                    </button>
+                    <button class="profile5 profile">
+                        <img src="assets/profiles/profile5.jpg" alt="profile5">
+                    </button>
+                    <button class="profile6 profile">
+                        <img src="assets/profiles/profile6.jpg" alt="profile6">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const profileButtons = document.querySelectorAll(".profile");
+        const signupButton = document.querySelector(".signup-button");
+    </script>
+    <script>
+        function Back() {
+            window.location.href = "entrypage.html";
+        }
+    </script>
+    <script>
+        let selectedButton;
+        let selectedProfile;
+        let profileSelected = false;
+
+        profileButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                if (selectedButton) {
+                    selectedButton.classList.remove("selected");
+                }
+                button.classList.add("selected");
+                selectedButton = button;
+
+                if (selectedButton.classList.contains('profile1')) {
+                  selectedProfile = "profile1"
+                }
+                else if (selectedButton.classList.contains('profile2')) {
+                  selectedProfile = "profile2"
+                }
+                else if (selectedButton.classList.contains('profile3')) {
+                  selectedProfile = "profile3"
+                }
+                else if (selectedButton.classList.contains('profile4')) {
+                  selectedProfile = "profile4"
+                }
+                else if (selectedButton.classList.contains('profile5')) {
+                  selectedProfile = "profile5"
+                }
+                else if (selectedButton.classList.contains('profile6')) {
+                  selectedProfile = "profile6"
+                }
+
+                profileSelected = true;
+            });
+        });
+    </script>
+    <script>
+        const usernameInput = document.querySelector(".username-input");
+        const passwordInput = document.querySelector(".password-input");
+
+        signupButton.addEventListener("click", async () => {
+          try {
+              const username = usernameInput.value.trim();
+              const password = passwordInput.value;
+
+              const response = await fetch("data/users.json");
+              const users = await response.json();
+
+              if (!username) {
+                  alert("Please enter a username")
+              }
+              else if (users[username]) {
+                  alert("Username is taken")
+              }
+              else if (!password) {
+                  alert("Please enter a password")
+              }
+              else if (!profileSelected){
+                  alert("Please select a profile picture!")
+              } 
+              else if (profileSelected) {
+                  alert("Signed up successfully! Welcome!");
+
+                  localStorage.setItem("username", JSON.stringify(username));
+                  localStorage.setItem("profilePicture", JSON.stringify(selectedProfile));
+
+                  window.location.href = "mediumNEW.html"
+              }
+          }
+          catch (error) {
+              console.warn("Error: ", error)
+              console.warn("Something may have gone wrong")
+          }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTown Explorer</title>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+    * {
+      font-family: "Poppins", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: #F8F4EC; /* soft paper background matching login/signup */
+      height: 100vh;
+      width: 100vw;
+      color: #3F2F23; /* dark brown text */
+      overflow: hidden;
+    }
+
+    /* Background container */
+    .background-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: #F8F4EC;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    /* Logo container */
+    .logo-holder {
+      height: fit-content;
+      width: 100vw;
+      display: flex;
+      background-color: #F8F4EC;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    /* Inner logo and title container */
+    .logo-holder2 {
+      background-color: #EDE4D6; /* soft beige */
+      width: 100vw;
+      border: 4px solid #D7CCBB;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 30px;
+      gap: 15px;
+    }
+
+    .logo-holder2 h1 {
+      font-size: 29px;
+      color: #3F2F23;
+      margin: 0;
+    }
+
+    /* Logo image */
+    .logo {
+      border-radius: 15px;
+      height: 90px;
+      width: 90px;
+      margin: 0;
+      box-shadow: none;
+      border:#5A4736 4px  solid;
+    }
+
+    /* Main content area */
+    .content-holder,
+    .content-holder2 {
+      background-color: #EDE4D6; /* soft beige */
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #D7CCBB;
+      box-sizing: border-box;
+      padding: 30px 0;
+      gap: 15px;
+    }
+
+    .content-holder2 {
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .logo-holder2 {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 20px;
+    }
+
+    .logo-holder {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content-holder {
+      height: 85vh;
+      width: 85vw;
+      border-radius: 30px;
+      margin: 55px 0;
+    }
+
+    /* Headings */
+    .content-holder h1 {
+      font-size: 50px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #3F2F23;
+    }
+
+    .content-holder p {
+      color: #3F2F23;
+      font-size: larger;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* Buttons */
+    button {
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px;
+      padding-left: 75px;
+      padding-right: 75px;
+      font-size: 29px;
+      font-weight: bold;
+      width: 85%;
+      background-color: #3F2F23; /* dark brown */
+      color: #F8F4EC; /* light paper */
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    button:hover {
+      background-color: #5A4736; /* lighter brown */
+    }
+
+    /* Button images */
+    button img {
+      height: 45px;
+      width: 45px;
+      object-fit: contain;
+    }
+    </style>
+</head>
+<body>
+  <div class="background-holder">
+    <div class="logo-holder">
+        <div class="logo-holder2">
+            <img class="logo" src="assets/images/logo2.png" alt="town-explorer">
+            <h1>My Town Explorer</h1>
+        </div>
+    </div>
+
+    <div class="content-holder">
+        <h1><i>Welcome!</i></h1>
+        <p class="username-container">Username</p>
+    </div>
+
+    <div class="content-holder2">
+      <button onclick="get_started()">
+        <img src="assets/images/forward.png" alt="get_started">
+        Get Started
+      </button>
+      <button onclick="profile()">
+        <img src="assets/icons/profile.png" alt="profile">
+        Profile
+      </button>
+    </div>
+  </div>
+    <script>
+        function get_started() {
+            window.location.href = "homepage.html";
+        }
+        function profile() {
+          window.location.href = "profile.html"
+        }
+
+        const usernameContainer = document.querySelector(".username-container")
+
+        function setUsername() {
+          const username = JSON.parse(localStorage.getItem("username"));
+          usernameContainer.innerText = username;
+        }
+        
+        window.onload = function() {
+          setUsername();
+        };
+    </script>
+    <script>
+      
+    </script>
+</body>
+</html>
+

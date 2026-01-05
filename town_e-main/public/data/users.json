@@ -1,0 +1,19 @@
+{
+    "admin1": {
+        "username": "admin1" , 
+        "password": "townexplorer5@1",
+        "profile": {
+            "status": "admin",
+            "quote": "meri pocket"
+        }
+    },
+
+    "admin2": {
+        "username": "admin2" , 
+        "password": "townexplorer5@2",
+        "profile": {
+            "status": "admin",
+            "quote": "i am admin 2 lets go."
+        }
+    }
+}

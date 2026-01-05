@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTown Explorer Feed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  margin: 0;
+  background: #F8F4EC;
+  color: #3F2F23;
+  overflow-y: scroll;
+}
+
+/* === POST STYLING === */
+.post {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #F8F4EC;
+  border-bottom: 3.5px solid #D7CCBB;
+}
+
+/* Background blur for image */
+.post::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(15px) brightness(0.7);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* Foreground image */
+.post img {
+  max-width: 90vw;
+  max-height: 70vh;
+  border-radius: 20px;
+  border: 6px solid #EDE4D6;
+  box-shadow: 0 6px 18px rgba(63, 47, 35, 0.3);
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+}
+
+/* Overlay top info box */
+.top-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(237, 228, 214, 0.85);
+  border-bottom: 4px solid #D7CCBB;
+  padding: 18px;
+  z-index: 2;
+  color: #3F2F23;
+}
+
+.top-holder h1 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: #3F2F23;
+}
+.top-holder p {
+  margin: 4px 0;
+  color: #5A4736;
+  font-size: 0.9rem;
+}
+
+/* === SIDEBAR === */
+.buttons-holder {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(237, 228, 214, 0.9);
+  padding: 10px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(63, 47, 35, 0.2);
+  z-index: 9999;
+  gap: 14px;
+  border: 3px solid #D7CCBB;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid #C3B59F;
+  background: #5A4736;
+  cursor: pointer;
+}
+.action-btn img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.action-btn span {
+  color: #C3B59F;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Loader */
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7B6A5E;
+  font-size: 20px;
+}
+.description {
+  max-width: 100%;
+}
+  </style>
+</head>
+<body>
+  <div id="feed"></div>
+  <div class="loader" id="loader">Loading...</div>
+
+  <script>
+    const feed = document.getElementById("feed");
+    const loader = document.getElementById("loader");
+
+    // Load posts
+    const posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    function createPost(postData) {
+      const post = document.createElement("div");
+        
+      let cleanedTitle = "Untitled Post.";
+      let cleanedDescription = "No description provided."
+  
+      if (postData.title.length < 40 ) {
+        cleanedTitle = postData.title
+      } else if (postData.title.length > 150) {
+        cleanedTitle = postData.title.slice(0, 40) + '...'
+      }
+
+      if (postData.description.length < 150) {
+        cleanedDescription = postData.description
+      } else if (postData.description.length > 150) {
+        cleanedDescription = postData.description.slice(0, 150) + '...'
+      }
+      
+      post.className = "post";
+      post.style.setProperty("--bg", `url('${postData.imageURL}')`);
+      post.style.setProperty("background-image", `url('${postData.imageURL}')`);
+      post.innerHTML = `
+        <div class="top-holder">
+          <div>
+            <h1>${cleanedTitle}</h1>
+            <p style="max-width: 95vw; white-space: normal; overflow-wrap: break-word; word-break: break-word;">${cleanedDescription}</p>
+            <p>@${postData.username || "Unknown"}</p>
+          </div>
+        </div>
+        <img src="${postData.imageURL}" alt="Post image">
+      `;
+      feed.appendChild(post);
+    }
+
+    function loadPosts() {
+      if (posts.length === 0) {
+        loader.textContent = "No posts found. Go upload one!";
+        return;
+      }
+      posts.forEach((p) => createPost(p));
+      loader.style.display = "none";
+      renderSidebar();
+    }
+
+    function renderSidebar() {
+      if (document.querySelector(".buttons-holder")) return;
+      const sidebar = document.createElement("div");
+      sidebar.className = "buttons-holder";
+      sidebar.innerHTML = `
+        <div class="action-btn">
+          <img src="assets/posts/images/like.png" alt="Like">
+          <span>23</span>
+        </div>
+        <div class="action-btn">
+          <img src="assets/posts/images/dislike.png" alt="Dislike">
+          <span>2</span>
+        </div>
+        <div class="action-btn">
+          <img src="assets/posts/images/comments.png" alt="Comments">
+          <span>2</span>
+        </div>
+        <div class="action-btn">
+          <img src="assets/posts/images/repost.png" alt="Repost">
+          <span>4</span>
+        </div>
+        <div class="action-btn">
+          <img src="assets/posts/images/menu.png" alt="Menu">
+        </div>
+      `;
+      document.body.appendChild(sidebar);
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>

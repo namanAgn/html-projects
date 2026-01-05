@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTown Explorer</title>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+    h1 {
+      color: white;
+    }
+
+    * {
+      font-family: "Poppins";
+    } 
+
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .background-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: rgba(7, 63, 57);
+      width: 100vw;
+      height: 100vh;
+    }
+    .content-holder2,
+    .content-holder {
+      background-color: rgba(23, 84, 78);
+      width: 85vw;
+      border-radius: 7.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .content-holder {
+      height: auto;
+      width: 100vw;
+      margin: 25px;
+      border-radius: 0%;
+    }
+
+    .content-holder h1 {
+      font-size: 50px;
+      margin: none;
+    }
+
+    .content-holder2 {
+      border-radius: 0%;
+      width: 100vw;
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .content-holder p {
+      color: white;
+      margin: 0;
+    }
+
+    .content-holder2 h1,
+    .content-holder h1 {
+      margin-bottom: 0px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .content-holder p {
+      color: white;
+      font-size: larger;
+    }
+
+    .profile-holder2 {
+        display: flex;
+        background-color:rgba(23, 84, 78);
+        width: 100vw;
+        height: fit-content;
+        align-items: center;
+        justify-content: center;
+    }
+    .profile-holder2 h1{
+      font-size: 25px;
+        color: rgba(254, 250, 240);
+    }
+    .profile-holder {
+      height: fit-content;
+      width: 100vw;
+      display: flex;
+      background-color:rgba(7, 63, 57);
+    }
+    .profile {
+      border-radius: 50%;
+      height: 105px;
+      width: 105px;
+      margin: 15px;
+      border: 7px solid  rgba(7, 63, 57);
+    }
+    .back-holder {
+      background: none;
+      border: none;
+      height: fit-content;
+      width: fit-content;
+      padding: 0;
+    }
+    .back {
+      background-color: rgba(23, 84, 78);
+      border: 4px solid rgb(5, 44, 40);
+      padding: none;
+      margin: none;
+      border-radius: 5px;
+      width: 35px;
+      padding: 10px;
+    }
+    button {
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px;
+      padding-left: 75px;
+      padding-right: 75px;
+      font-size: 30px;
+      font-weight: bold;
+      width: 85%;
+      background-color: rgba(7, 63, 57);
+      color: white;
+      border: none;
+    }
+    
+    .friend-toggle {
+      font-size: 20px;
+      padding: 15px;
+      width: fit-content;
+    }
+
+    .divider {
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: rgb(5, 44, 40);
+      margin: 10px 0;
+      border: none;
+    }
+
+    .content-holder,
+    .content-holder2,
+    .profile-holder2,
+    .logo-holder2 {
+      border: 4px solid rgb(5, 44, 40);
+      box-sizing: border-box;
+    }
+
+    .content-holder {
+      border-right: none;
+      border-left: none;
+    }
+
+    .logo-holder2 {
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+
+    .content-holder2  {
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+    }
+
+    .profile-holder2 {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .text-wrapper p {
+      color: white;
+      margin: 0;
+    }
+    .text-wrapper h1 {
+      margin: 0;
+      padding: 0;
+    }
+    .post-grid {
+      width: 100vw;
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .post {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .post p {
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .thumbnail {
+      height: 200px;
+      width: 100%;
+      border-radius: 20px;
+      background-color:rgba(7, 63, 57);
+    }
+    </style>
+</head>
+<body>
+  <div class="background-holder">
+    <div class="profile-holder">
+        <div class="profile-holder2">
+            <button class="back-holder" onclick="Back()" type="title">
+              <img class="back" src="assets/images/back.png" alt="back-arrow">
+            </button>
+            <img class="profile" src="assets/images/logo2.png" alt="town-explorer">
+            <div class="text-wrapper">
+              <h1>@USERNAME</h1>
+              <p class="status">custom status</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-holder">
+        <h1>Stats</h1>
+        <hr class="divider">
+        <div>
+          <p>Posts: 23</p>
+          <p>Friends: 2/5</p>
+          <p>Points: 250</p>
+          <i><p>"Insert user entered quote"</p></i>
+        </div>
+        <hr class="divider">
+        <div>
+          <RIGHT>
+            <button class="friend-toggle">Add Friend</button>
+          </RIGHT>
+        </div>
+    </div>
+    
+    <div class="content-holder2">
+      <h1>Posts</h1>  
+      <hr class="divider">
+      <div class="post-grid">
+        <div class="post">
+          <div class="thumbnail"></div>
+          <p class="title">Very good image title for very good image</p>
+        </div>
+        <div class="post">
+          <div class="thumbnail"></div>
+          <p class="title">Very good image title for very good image</p>
+        </div>
+        <div class="post">
+          <div class="thumbnail"></div>
+          <p class="title">Very good image title for very good image</p>
+        </div>
+        <div class="post">
+          <div class="thumbnail"></div>
+          <p class="title">Very good image title for very good image</p>
+        </div>
+        <div class="post">
+          <div class="thumbnail"></div>
+          <p class="title">Very good image title for very good image</p>
+        </div>
+        <div class="post">
+          <div class="thumbnail"></div>
+          <p class="title">Very good image title for very good image</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  function Back() {
+    window.location.href = "homepage.html"
+  }
+  </script>
+</body>
+</html>
+

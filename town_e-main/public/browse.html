@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTown Explorer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* ===== COLOR VARIABLES ===== */
+        :root {
+            --primary-dark: rgba(7, 63, 57, 1);
+            --primary-medium: rgba(23, 84, 78, 1);
+            --primary-light: rgba(35, 100, 90, 1);
+            --accent: rgba(69, 106, 102, 1);
+            --border-color: rgb(5, 44, 40);
+            --text-light: rgba(254, 250, 240, 1);
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .background-holder {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        /* ===== LOGO SECTION ===== */
+        .logo-holder {
+            width: 100vw;
+            display: flex;
+            background-color: var(--primary-dark);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        .logo-holder2 {
+            background-color: var(--primary-medium);
+            width: 100vw;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 4px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            border-radius: 15px;
+            height: 90px;
+            width: 90px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .logo:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .logo-holder2 h1 {
+            font-size: 29px;
+            color: var(--text-light);
+            margin: 0;
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+            transition: all 0.3s ease;
+        }
+
+        .logo-holder2:hover h1 {
+            letter-spacing: 1px;
+        }
+
+        /* ===== SEARCH SECTION ===== */
+        .search-holder {
+            width: 90vw;
+            max-width: 800px;
+            padding: 10px;
+            background: linear-gradient(135deg, var(--primary-medium) 0%, var(--primary-light) 100%);
+            margin: 30px;
+            border-radius: 15px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border: 4px solid var(--border-color);
+            box-shadow: 0 8px 20px var(--shadow-color);
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+            transition: all 0.3s ease;
+        }
+
+        .search-holder:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px var(--shadow-color);
+        }
+
+        .search-holder input {
+            border: none;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px;
+            font-size: 17.5px;
+            border-radius: 15px;
+            width: 100%;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-holder input:focus {
+            background-color: rgba(80, 120, 115, 1);
+            transform: scale(1.02);
+        }
+
+        .search-holder input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-holder button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            height: fit-content;
+            margin: 0;
+            padding: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-holder button:hover {
+            background-color: var(--primary-dark);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .search-holder img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* ===== CONTENT SECTION ===== */
+        .content-holder2 {
+            background-color: var(--primary-medium);
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top: 4px solid var(--border-color);
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+        }
+
+        .heading-holder {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-medium) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heading-holder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .heading-holder:hover::before {
+            left: 100%;
+        }
+
+        .content-holder2 h2 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .divider {
+            border: 2px solid var(--border-color);
+            width: 100%;
+            margin: 0;
+            opacity: 0.6;
+        }
+
+        /* ===== PROFILE CARDS ===== */
+        .category {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary-medium) 100%);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: scaleIn 0.5s ease-out backwards;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .category .profile:nth-child(1) { animation-delay: 0.1s; }
+        .category .profile:nth-child(2) { animation-delay: 0.2s; }
+        .category .profile:nth-child(3) { animation-delay: 0.3s; }
+
+        .profile:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 24px var(--shadow-color);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
+        }
+
+        .profile-holder {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .profile-holder::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-dark), var(--text-light));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile:hover .profile-holder::after {
+            opacity: 1;
+            animation: pulse 2s infinite;
+        }
+
+        .profile-holder img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--primary-dark);
+            border: 4px solid var(--text-light);
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+
+        .profile:hover .profile-holder img {
+            transform: scale(1.1);
+            border-color: var(--primary-light);
+        }
+
+        .username {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .profile:hover .username {
+            color: var(--text-light);
+            transform: scale(1.1);
+        }
+
+        .profile-text-holder {
+            display: flex;
+            gap: 15px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .profile:hover .profile-text-holder {
+            background-color: rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .profile p {
+            color: white;
+            margin: 0;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-text-holder p:hover {
+            transform: scale(1.2);
+        }
+
+        /* ===== NEXT PAGE BUTTON ===== */
+        .next-page {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .next-page button {
+            width: fit-content;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px 60px;
+            margin: 0;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: white;
+            border: 3px solid var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 16px var(--shadow-color);
+        }
+
+        .next-page button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .next-page button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .next-page button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px var(--shadow-color);
+            border-color: var(--primary-light);
+        }
+
+        .next-page button:active {
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .category {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 20px 15px;
+            }
+
+            .logo {
+                height: 70px;
+                width: 70px;
+            }
+
+            .logo-holder2 h1 {
+                font-size: 24px;
+            }
+
+            .search-holder {
+                width: 95vw;
+                margin: 20px;
+            }
+
+            .next-page button {
+                font-size: 20px;
+                padding: 12px 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category {
+                grid-template-columns: 1fr;
+            }
+
+            .content-holder2 h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-holder">
+        <!-- Logo Section -->
+        <div class="logo-holder">
+            <div class="logo-holder2">
+                <img class="logo" src="assets/images/logo2.png" alt="MyTown Explorer Logo">
+                <h1>My Town Explorer</h1>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-holder">
+            <input type="text" placeholder="Search for people, places, or things...">
+            <button class="browse" aria-label="Browse">
+                <img src="assets/browse.png" alt="Browse">
+            </button>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content-holder2">
+            <!-- You May Know -->
+            <div class="heading-holder">
+                <h2>You may know</h2>
+            </div>
+            <hr class="divider">
+            
+            <div class="category category-1">
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+                
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+                
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Similar to You -->
+            <div class="heading-holder">
+                <h2>Similar to you</h2>
+            </div>
+            <hr class="divider">
+            
+            <div class="category category-2">
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+                
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+                
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Near You -->
+            <div class="heading-holder">
+                <h2>Near you</h2>
+            </div>
+            <hr class="divider">
+            
+            <div class="category category-3">
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+                
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+                
+                <div class="profile">
+                    <div class="profile-holder">
+                        <img src="assets/images/logo2.png" alt="User profile">
+                    </div>
+                    <p class="username">@USERNAME</p>
+                    <div class="profile-text-holder">
+                        <p class="mutuals" title="Mutual friends">👥 0</p>
+                        <p class="friends" title="Friends">🤝 0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Page Button -->
+            <div class="next-page">
+                <button onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation Functions
+        function get_started() {
+            window.location.href = "homepage.html";
+        }
+
+        function profile() {
+            window.location.href = "profile.html";
+        }
+
+        function nextPage() {
+            console.log("Navigate to next page");
+            // Add your navigation logic here
+        }
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-holder input');
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                console.log('Search for:', this.value);
+                // Add your search logic here
+            }
+        });
+
+        // Profile card click handlers
+        document.querySelectorAll('.profile').forEach(profile => {
+            profile.addEventListener('click', function() {
+                console.log('Profile clicked:', this.querySelector('.username').textContent);
+                // Add your profile navigation logic here
+            });
+        });
+    </script>
+</body>
+</html>

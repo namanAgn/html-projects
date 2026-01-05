@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTown Explorer - Detailed Animated Promo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins";
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            background: #F8F4EC;
+            color: #3F2F23;
+        }
+
+        .video-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: #EDE4D6;
+            border-top: 3.5px solid #D7CCBB;
+        }
+
+        .scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            padding: 3rem;
+            overflow-y: auto;
+        }
+
+        .scene.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .scene h1 {
+            font-size: 3rem;
+            color: #3F2F23;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(63, 47, 35, 0.2);
+        }
+
+        .scene h2 {
+            font-size: 2.5rem;
+            color: #3F2F23;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(63, 47, 35, 0.2);
+        }
+
+        .scene p {
+            font-size: 1.2rem;
+            color: #3F2F23;
+            text-align: center;
+            max-width: 900px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(63, 47, 35, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        /* Intro Scene */
+        .logo-animation {
+            font-size: 4.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #3F2F23, #5A4736, #3F2F23, #5A4736);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .tagline {
+            font-size: 1.6rem;
+            color: #3F2F23;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1s forwards;
+        }
+
+        .team-badge {
+            background: rgba(63, 47, 35, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(63, 47, 35, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            max-width: 900px;
+        }
+
+        .feature-card {
+            background: #F8F4EC;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(63, 47, 35, 0.1);
+            animation: slideInUp 0.8s ease;
+            border: 1px solid #D7CCBB;
+        }
+
+        .feature-card h3 {
+            color: #3F2F23;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #3F2F23;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Map Visualization */
+        .map-container {
+            width: 700px;
+            height: 400px;
+            background: #F8F4EC;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(63, 47, 35, 0.15);
+            margin: 1rem 0;
+            border: 1px solid #D7CCBB;
+        }
+
+        .map-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #EDE4D6 0%, #F8F4EC 100%);
+            position: relative;
+        }
+
+        .marker {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: #3F2F23;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(63, 47, 35, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        .marker:nth-child(1) { top: 15%; left: 25%; animation-delay: 0s; }
+        .marker:nth-child(2) { top: 35%; left: 55%; animation-delay: 0.3s; }
+        .marker:nth-child(3) { top: 55%; left: 20%; animation-delay: 0.6s; }
+        .marker:nth-child(4) { top: 65%; left: 65%; animation-delay: 0.9s; }
+        .marker:nth-child(5) { top: 25%; left: 75%; animation-delay: 1.2s; }
+        .marker:nth-child(6) { top: 75%; left: 40%; animation-delay: 1.5s; }
+
+        /* Upload Feature */
+        .upload-demo {
+            width: 600px;
+            background: #F8F4EC;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(63, 47, 35, 0.15);
+            margin: 1rem 0;
+            border: 1px solid #D7CCBB;
+        }
+
+        .upload-box {
+            width: 100%;
+            height: 200px;
+            border: 3px dashed #3F2F23;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            background: #EDE4D6;
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: #3F2F23;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .upload-text {
+            color: #3F2F23;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #D7CCBB;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3F2F23, #5A4736);
+            width: 0;
+            animation: fillProgress 4s ease-in-out infinite;
+        }
+
+        @keyframes fillProgress {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+
+        /* AI Verification */
+        .ai-box {
+            width: 400px;
+            background: #F8F4EC;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(63, 47, 35, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem 0;
+            border: 1px solid #D7CCBB;
+        }
+
+        .ai-brain {
+            font-size: 5rem;
+            animation: rotate 4s linear infinite;
+            color: #3F2F23;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ai-text {
+            color: #3F2F23;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .verification-steps {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.7rem;
+            margin-bottom: 0.7rem;
+            background: #EDE4D6;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: #3F2F23;
+        }
+
+        .checkmark {
+            font-size: 1.5rem;
+            color: #3F2F23;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        /* Rewards */
+        .coin-container {
+            display: flex;
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
+
+        .coin {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3F2F23 0%, #5A4736 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #F8F4EC;
+            box-shadow: 0 10px 20px rgba(63, 47, 35, 0.2);
+            animation: coinFlip 2s ease-in-out infinite;
+        }
+
+        .coin:nth-child(1) { animation-delay: 0s; }
+        .coin:nth-child(2) { animation-delay: 0.3s; }
+        .coin:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes coinFlip {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+
+        /* Weather */
+        .weather-box {
+            width: 450px;
+            background: linear-gradient(135deg, #3F2F23 0%, #5A4736 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(63, 47, 35, 0.15);
+            color: #F8F4EC;
+            margin: 1rem 0;
+        }
+
+        .weather-icon {
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .temp {
+            font-size: 3.5rem;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .forecast {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .day {
+            text-align: center;
+            background: rgba(248, 244, 236, 0.2);
+            padding: 0.8rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+        }
+
+        /* Language */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            max-width: 800px;
+        }
+
+        .lang-card {
+            background: #F8F4EC;
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(63, 47, 35, 0.1);
+            animation: slideIn 0.5s ease;
+            transition: transform 0.3s ease;
+            border: 1px solid #D7CCBB;
+        }
+
+        .lang-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .lang-name {
+            font-size: 1.8rem;
+            color: #3F2F23;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .lang-english {
+            font-size: 0.9rem;
+            color: #5A4736;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            max-width: 900px;
+        }
+
+        .benefit-card {
+            background: #F8F4EC;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(63, 47, 35, 0.1);
+            animation: slideInUp 0.6s ease;
+            border: 1px solid #D7CCBB;
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .benefit-card h4 {
+            color: #3F2F23;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .benefit-card p {
+            color: #3F2F23;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .stat-box {
+            background: #F8F4EC;
+            padding: 1.5rem 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(63, 47, 35, 0.1);
+            border: 1px solid #D7CCBB;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: #3F2F23;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #5A4736;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA */
+        .cta-button {
+            background: #3F2F23;
+            color: #F8F4EC;
+            padding: 1.5rem 3.5rem;
+            border-radius: 50px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(63, 47, 35, 0.2);
+            animation: buttonPulse 2s ease-in-out infinite;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #5A4736;
+            transform: scale(1.05);
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .platform-icons {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .platform-icon {
+            font-size: 2.5rem;
+            background: rgba(63, 47, 35, 0.1);
+            padding: 1.2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: float 3s ease-in-out infinite;
+            color: #3F2F23;
+        }
+
+        .platform-icon:nth-child(2) { animation-delay: 0.5s; }
+        .platform-icon:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: rgba(63, 47, 35, 0.7);
+            color: #F8F4EC;
+            border: 2px solid #3F2F23;
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .control-btn.small {
+            padding: 5px 12px;
+            font-size: 0.75rem;
+        }
+
+        .control-btn:hover {
+            background: rgba(63, 47, 35, 0.9);
+            transform: scale(1.05);
+        }
+
+        .scene-indicator {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            color: #3F2F23;
+            font-size: 1.2rem;
+            background: rgba(248, 244, 236, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            z-index: 1000;
+            border: 1px solid #D7CCBB;
+        }
+
+        .progress-dots {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(63, 47, 35, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot:hover {
+            background: rgba(63, 47, 35, 0.6);
+        }
+
+        .dot.active {
+            background: #3F2F23;
+            transform: scale(1.3);
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 1rem;
+            max-width: 700px;
+        }
+
+        .info-list li {
+            background: #F8F4EC;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.8rem;
+            border-radius: 10px;
+            color: #3F2F23;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(63, 47, 35, 0.1);
+            animation: slideIn 0.5s ease;
+            border: 1px solid #D7CCBB;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <!-- Scene Indicator -->
+        <div class="scene-indicator">
+            <span id="currentScene">1</span> / <span id="totalScenes">14</span>
+        </div>
+
+        <!-- Progress Dots -->
+        <div class="progress-dots" id="progressDots"></div>
+
+        <!-- Scene 1: Intro -->
+        <div class="scene active" id="scene1">
+            <div class="logo-animation">MyTown Explorer</div>
+            <div class="tagline">🇮🇳 India's Own Intelligent Map Service</div>
+            <div class="team-badge">
+                <p style="font-size: 1.2rem; margin: 0;">Proudly Developed by Team AITEAM5</p>
+            </div>
+        </div>
+
+        <!-- Scene 2: Problem Statement -->
+        <div class="scene" id="scene2">
+            <h1>🤔 The Challenge</h1>
+            <p style="font-size: 1.4rem; margin-bottom: 1.5rem;">Most global mapping platforms miss India's hidden gems</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>❌ Missing Locations</h3>
+                    <p>Countless temples, monuments, and tourist spots are not on popular maps</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌐 Language Barriers</h3>
+                    <p>Many platforms don't support regional Indian languages effectively</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Limited Local Knowledge</h3>
+                    <p>Travelers miss authentic experiences known only to locals</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✋ Outdated Information</h3>
+                    <p>Details about timings, festivals, and accessibility are often incorrect</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 3: Our Solution -->
+        <div class="scene" id="scene3">
+            <h1>💡 Our Solution</h1>
+            <p style="font-size: 1.3rem; max-width: 900px;">A community-powered platform where Indians discover, share, and verify information about religious sites and tourist destinations</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h4>Community-Driven</h4>
+                    <p>Real people sharing real experiences from every corner of India</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤖</div>
+                    <h4>AI-Verified</h4>
+                    <p>Smart technology ensures quality and authenticity of all content</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🇮🇳</div>
+                    <h4>Made in India</h4>
+                    <p>Built specifically for Indian travelers, by Indians</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 4: Interactive Map Feature -->
+        <div class="scene" id="scene4">
+            <h2>🗺️ Interactive Political Map of India</h2>
+            <p>Every location is precisely mapped with coordinates and visual markers</p>
+            <div class="map-container">
+                <div class="map-bg">
+                    <div class="marker">🕉️</div>
+                    <div class="marker">⛪</div>
+                    <div class="marker">🕌</div>
+                    <div class="marker">🏛️</div>
+                    <div class="marker">🏔️</div>
+                    <div class="marker">🏖️</div>
+                </div>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📍</div>
+                    <h4>Precise Location</h4>
+                    <p>GPS coordinates for every place</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔍</div>
+                    <h4>Easy Discovery</h4>
+                    <p>Find places by region or type</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👁️</div>
+                    <h4>Visual Navigation</h4>
+                    <p>See all attractions at a glance</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 5: Upload Feature -->
+        <div class="scene" id="scene5">
+            <h2>📸 Upload Your Discoveries</h2>
+            <p>Share beautiful places you've visited and help fellow travelers</p>
+            <div class="upload-demo">
+                <div class="upload-box">
+                    <div class="upload-icon">📤</div>
+                    <div class="upload-text">Drag & Drop or Click to Upload</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p style="color: #3F2F23; margin-top: 0.8rem; font-size: 1rem;">Uploading...</p>
+            </div>
+            <p style="margin-top: 1rem;">Upload photos, descriptions, timings, entry fees, and local tips</p>
+        </div>
+
+        <!-- Scene 6: What You Can Upload -->
+        <div class="scene" id="scene6">
+            <h2>📋 What You Can Share</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🕉️</div>
+                    <h4>Religious Places</h4>
+                    <p>Temples, Churches, Mosques, Gurudwaras</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏛️</div>
+                    <h4>Historical Sites</h4>
+                    <p>Forts, Palaces, Monuments</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏞️</div>
+                    <h4>Natural Attractions</h4>
+                    <p>Waterfalls, Hills, Beaches</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎭</div>
+                    <h4>Cultural Centers</h4>
+                    <p>Museums, Art Galleries</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🍛</div>
+                    <h4>Local Experiences</h4>
+                    <p>Famous Food Spots, Markets</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎉</div>
+                    <h4>Festival Locations</h4>
+                    <p>Where festivals are celebrated</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 7: AI Verification System -->
+        <div class="scene" id="scene7">
+            <h2>🤖 AI-Powered Verification</h2>
+            <p>Every submission is analyzed for quality and authenticity</p>
+            <div class="ai-box">
+                <div class="ai-brain">🧠</div>
+                <div class="ai-text">Analyzing your content...</div>
+                <div class="verification-steps">
+                    <div class="step">
+                        <span class="checkmark">✓</span>
+                        <span>Image Quality Check</span>
+                    </div>
+                    <div class="step">
+                        <span class="checkmark">✓</span>
+                        <span>Relevance Verification</span>
+                    </div>
+                    <div class="step">
+                        <span class="checkmark">✓</span>
+                        <span>Authenticity Confirmation</span>
+                    </div>
+                    <div class="step">
+                        <span class="checkmark">✓</span>
+                        <span>Location Validation</span>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 1.3rem; color: #3F2F23;">✅ Content Approved!</p>
+        </div>
+
+        <!-- Scene 8: AI Verification Details -->
+        <div class="scene" id="scene8">
+            <h2>🔍 What AI Checks</h2>
+            <ul class="info-list">
+                <li><strong>📷 Image Quality:</strong> Clear, well-lit photos without blur</li>
+                <li><strong>🎯 Relevance:</strong> Content matches religious or tourist categories</li>
+                <li><strong>✨ Authenticity:</strong> Real locations, not fake or misleading</li>
+                <li><strong>📍 Location Data:</strong> Correct GPS coordinates and address</li>
+                <li><strong>📝 Description Quality:</strong> Helpful, accurate information</li>
+                <li><strong>🚫 Content Safety:</strong> No inappropriate or harmful content</li>
+            </ul>
+            <p style="margin-top: 1.5rem;">Only verified content appears on the map!</p>
+        </div>
+
+        <!-- Scene 9: Reward System -->
+        <div class="scene" id="scene9">
+            <h2>🎁 Earn Reward Points</h2>
+            <p>Get rewarded for every approved contribution</p>
+            <div class="coin-container">
+                <div class="coin">🪙</div>
+                <div class="coin">🪙</div>
+                <div class="coin">🪙</div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">+50</div>
+                    <div class="stat-label">Points per Upload</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">+20</div>
+                    <div class="stat-label">Bonus for Reviews</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">+100</div>
+                    <div class="stat-label">Hidden Gem Bonus</div>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem;">Build your reputation and unlock special badges!</p>
+        </div>
+
+        <!-- Scene 10: Weather Forecast -->
+        <div class="scene" id="scene10">
+            <h2>🌤️ 10-Day Weather Forecast</h2>
+            <p>Plan your trips with accurate weather information</p>
+            <div class="weather-box">
+                <div class="weather-icon">☀️</div>
+                <div class="temp">28°C</div>
+                <div class="forecast">
+                    <div class="day">
+                        <div class="day-name">Mon</div>
+                        <div style="font-size: 2rem; margin: 0.5rem 0;">⛅</div>
+                        <div>26°</div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Tue</div>
+                        <div style="font-size: 2rem; margin: 0.5rem 0;">🌧️</div>
+                        <div>24°</div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Wed</div>
+                        <div style="font-size: 2rem; margin: 0.5rem 0;">☀️</div>
+                        <div>29°</div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Thu</div>
+                        <div style="font-size: 2rem; margin: 0.5rem 0;">⛅</div>
+                        <div>27°</div>
+                    </div>
+                    <div class="day">
+                        <div class="day-name">Fri</div>
+                        <div style="font-size: 2rem; margin: 0.5rem 0;">☀️</div>
+                        <div>30°</div>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 1rem;">Check weather before visiting any location</p>
+        </div>
+
+        <!-- Scene 11: Multi-Language Support -->
+        <div class="scene" id="scene11">
+            <h2>🗣️ Multi-Language Support</h2>
+            <p>Access MyTown Explorer in your preferred language</p>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <div class="lang-name">हिंदी</div>
+                    <div class="lang-english">Hindi</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">தமிழ்</div>
+                    <div class="lang-english">Tamil</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">తెలుగు</div>
+                    <div class="lang-english">Telugu</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">ಕನ್ನಡ</div>
+                    <div class="lang-english">Kannada</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">বাংলা</div>
+                    <div class="lang-english">Bengali</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">ગુજરાતી</div>
+                    <div class="lang-english">Gujarati</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">മലയാളം</div>
+                    <div class="lang-english">Malayalam</div>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-name">मराठी</div>
+                    <div class="lang-english">Marathi</div>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem;">And many more Indian languages coming soon!</p>
+        </div>
+
+        <!-- Scene 12: Community Power -->
+        <div class="scene" id="scene12">
+            <h1>👥 Community-Powered Discovery</h1>
+            <p style="font-size: 1.3rem;">Join thousands of explorers sharing India's treasures</p>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Locations Shared</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-label">Photos Uploaded</div>
+                </div>
+            </div>
+            <div class="benefits-grid" style="margin-top: 2rem;">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h4>Share Knowledge</h4>
+                    <p>Help others discover amazing places</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌟</div>
+                    <h4>Build Reputation</h4>
+                    <p>Become a trusted contributor</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏆</div>
+                    <h4>Earn Rewards</h4>
+                    <p>Get recognized for your contributions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 13: Key Features Summary -->
+        <div class="scene" id="scene13">
+            <h1>✨ Everything You Need</h1>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🗺️</div>
+                    <h4>Interactive Map</h4>
+                    <p>Visualize all locations across India</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📸</div>
+                    <h4>Easy Upload</h4>
+                    <p>Share photos and descriptions instantly</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤖</div>
+                    <h4>AI Verification</h4>
+                    <p>Ensures quality and authenticity</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎁</div>
+                    <h4>Reward Points</h4>
+                    <p>Earn for every contribution</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌤️</div>
+                    <h4>Weather Info</h4>
+                    <p>10-day forecast for planning</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🗣️</div>
+                    <h4>Multi-Language</h4>
+                    <p>Available in Indian languages</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 14: Call to Action -->
+        <div class="scene" id="scene14">
+            <h1>🇮🇳 Explore India with Pride</h1>
+            <p style="font-size: 1.4rem;">Community-powered • AI-verified • Made in India</p>
+            <button class="cta-button">Start Exploring Now</button>
+            <div class="platform-icons">
+                <div class="platform-icon">🌐</div>
+                <div class="platform-icon">📱</div>
+                <div class="platform-icon">💻</div>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 1.1rem;">Currently Web-based • Mobile App Coming Soon</p>
+            <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.9;">By Team AITEAM5</p>
+        </div>
+    </div>
+
+    <script>
+        let currentScene = 1;
+        const totalScenes = 14;
+        let isPlaying = true;
+        let autoPlayInterval;
+
+        // Initialize progress dots
+        function initProgressDots() {
+            const dotsContainer = document.getElementById('progressDots');
+            for (let i = 1; i <= totalScenes; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 1) dot.classList.add('active');
+                dot.onclick = () => showScene(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateProgressDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index + 1 === currentScene) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function showScene(sceneNum) {
+            // Remove active from all scenes
+            document.querySelectorAll('.scene').forEach(s => {
+                s.classList.remove('active');
+            });
+            
+            // Add active to current scene
+            const scene = document.getElementById('scene' + sceneNum);
+            if (scene) {
+                scene.classList.add('active');
+                currentScene = sceneNum;
+                document.getElementById('currentScene').textContent = sceneNum;
+                updateProgressDots();
+            }
+        }
+
+        function nextScene() {
+            if (currentScene < totalScenes) {
+                showScene(currentScene + 1);
+            } else {
+                showScene(1); // Loop back to start
+            }
+        }
+
+        function prevScene() {
+            if (currentScene > 1) {
+                showScene(currentScene - 1);
+            } else {
+                showScene(totalScenes); // Go to last scene
+            }
+        }
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            const btn = document.getElementById('playBtn');
+            if (isPlaying) {
+                btn.textContent = '⏸ Pause';
+                startAutoPlay();
+            } else {
+                btn.textContent = '▶ Play';
+                stopAutoPlay();
+            }
+        }
+
+        function restartVideo() {
+            showScene(1);
+            if (!isPlaying) {
+                togglePlay();
+            }
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay(); // Clear any existing interval
+            autoPlayInterval = setInterval(() => {
+                nextScene();
+            }, 6000); // 6 seconds per scene
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
+        }
+
+        // Initialize
+        document.getElementById('totalScenes').textContent = totalScenes;
+        initProgressDots();
+        startAutoPlay();
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextScene();
+            }
+            if (e.key === 'ArrowLeft') {
+                prevScene();
+            }
+            if (e.key === ' ') {
+                e.preventDefault();
+                togglePlay();
+            }
+            if (e.key === 'Home') {
+                showScene(1);
+            }
+            if (e.key === 'End') {
+                showScene(totalScenes);
+            }
+        });
+
+        // Pause auto-play when user manually navigates
+        document.querySelectorAll('.control-btn').forEach(btn => {
+            if (btn.onclick && btn.id !== 'playBtn') {
+                const originalOnclick = btn.onclick;
+                btn.onclick = function() {
+                    if (isPlaying) {
+                        stopAutoPlay();
+                        startAutoPlay(); // Restart timer
+                    }
+                    originalOnclick.call(this);
+                };
+            }
+        });
+    </script>
+</body>
+</html>

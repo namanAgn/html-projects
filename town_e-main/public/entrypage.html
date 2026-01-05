@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyTown Explorer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * {
+    font-family: "Poppins";
+    box-sizing: border-box;
+  }
+  body, html {
+    font-family: "Poppins";
+    margin: 0;
+    padding: 0;
+    background-color: #F8F4EC; /* matches login/signup bg */
+    height: 100vh;
+    width: 100vw;
+    color: #3F2F23;
+    overflow: hidden;
+  }
+
+  .background-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #F8F4EC;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .logo-holder {
+    height: 35vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    border-radius: 30px;
+    height: 220px;
+    width: 220px;
+    box-shadow: none;
+    border:#D7CCBB 7px solid;
+  }
+
+  .content-holder {
+    background-color: #EDE4D6;
+    width: 100vw;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 3.5px solid #D7CCBB;
+  }
+
+  .content-holder h1 {
+    margin-top: none;
+    margin-bottom: 25%;
+    color: #3F2F23;
+    text-align: center;
+    font-size: 55px;
+    line-height: 1.2;
+  }
+
+  button {
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    width: 280px;
+    background-color: #3F2F23;
+    color: #F8F4EC;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #5A4736;
+  }
+</style>
+</head>
+<body>
+  <div class="background-holder">
+    <div class="logo-holder">
+      <img class="logo" src="assets/images/logo.png" alt="MyTown Explorer" />
+    </div>
+    <div class="content-holder">
+      <h1>Log In<br /><span style="font-size: 35px; line-height: 0.5">or</span><br />Sign Up</h1>
+      <button onclick="LogIn()">Log In</button>
+      <button onclick="SignUp()">Sign Up</button>
+    </div>
+  </div>
+
+  <script>
+    function SignUp() {
+      window.location.href = "signup.html";
+    }
+
+    function LogIn() {
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

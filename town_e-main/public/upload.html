@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTown Explorer</title>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+h1 {
+  color: #3F2F23;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #F8F4EC; /* soft paper */
+  color: #3F2F23;
+  height: 100%;
+  width: 100%;
+}
+
+.background-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #F8F4EC;
+  width: 100vw;
+  height: fit-content;
+}
+
+/* Container backgrounds and borders */
+.content-holder2,
+.search-holder,
+.logo-holder2 {
+  background-color: #EDE4D6; /* soft beige */
+  border: 4px solid #D7CCBB;
+  box-sizing: border-box;
+}
+
+.logo-holder2 {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: fit-content;
+}
+
+.logo-holder2 h1 {
+  font-size: 29px;
+  color: #3F2F23;
+  margin: 0;
+}
+
+.logo-holder {
+  height: fit-content;
+  width: 100vw;
+  display: flex;
+  background-color: #F8F4EC;
+}
+
+.logo {
+  border-radius: 15px;
+  height: 90px;
+  width: 90px;
+  margin: 10px;
+  box-shadow: none;
+}
+
+.content-holder2 {
+    width: 100vw;
+    padding: 20px;
+    border-right: none;
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Buttons */
+button {
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
+  font-size: 30px;
+  font-weight: bold;
+  width: 85%;
+  background-color: #3F2F23; /* dark brown */
+  color: #F8F4EC; /* soft paper */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5A4736; /* lighter brown */
+}
+
+/* Search holder */
+.search-holder {
+  width: 90vw;
+  padding: 10px;
+  margin: 30px;
+  border-radius: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Search holder buttons */
+.search-holder button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: fit-content;
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.search-holder input {
+  width: 70%;
+}
+
+.image-upload-container input[type="file"] {
+  display: none;
+}
+
+/* Grid of categories */
+.category {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px;
+}
+
+/* Profile images */
+.profile-holder img {
+  width: 100px;
+  border-radius: 50%;
+  background-color: #3F2F23; /* dark brown */
+}
+
+/* Profile container and text */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile p {
+  color: #3F2F23;
+  margin: 0;
+}
+
+.username {
+  font-size: larger;
+}
+
+.divider {
+  border: 2px solid #D7CCBB; /* soft beige */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-text-holder {
+  display: flex;
+  gap: 5px;
+  border-radius: 7px;
+}
+
+.profile-stats-holder {
+  display: block;
+}
+
+.heading-holder {
+  width: 100vw;
+  padding: 12px;
+  background-color: #8AA396; /* gentle muted green that harmonizes with beige */
+}
+
+/* Next page button styling */
+.next-page button {
+  width: fit-content;
+  font-size: x-large;
+}
+
+/* Inputs and textarea styling */
+.description-input,
+input {
+  border: none;
+  background-color: #455A66; /* softer muted teal */
+  color: #F8F4EC;
+  font-family: "Poppins";
+  padding: 10px;
+  font-size: medium;
+  border-radius: 15px;
+  height: fit-content;
+  width: 70vw;
+  transition: background-color 0.25s ease;
+}
+
+.description-input::placeholder,
+input::placeholder {
+  color: #F8F4EC;
+  font-family: "Poppins";
+  font-size: medium;
+  border-radius: 15px;
+}
+
+.description-input:focus,
+input:focus {
+  outline: none;
+  background-color: #3F2F23; /* slightly lighter on focus */
+}
+
+/* Title and description containers */
+.title-container,
+.description-container {
+  position: static;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.title-container h1,
+.image-container h1,
+.description-container h1 {
+    margin: 0;
+}
+
+/* Format buttons with subtle size */
+.format-button {
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
+  font-size: medium;
+}
+
+/* Labels for title and description input */
+.title-description-container p,
+.title-input-container p {
+  background-color: #3F2F23; /* dark brown */
+  color: #F8F4EC;
+  border-radius: 15px;
+  padding: 10px;
+  width: fit-content;
+  font-weight: bold;
+}
+
+/* Title and description input container layout */
+.title-description-container,
+.title-input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: fit-content;
+  gap: 10px;
+}
+
+/* Posts container width */
+.post {
+  width: fit-content;
+}
+
+/* Preview container */
+.preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Preview image background */
+.preview-image-background {
+  width: min(85vw, 400px);
+  height: calc(85vw * 16 / 9);
+  background-color: #3F2F23; /* dark brown */
+  border-radius: 25px;
+  border: 10px solid #D7CCBB; /* beige border */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.preview-image-background h2 {
+  color: white;
+}
+
+/* Top bar inside preview */
+.top-holder {
+  display: flex;
+  background-color: rgba(90, 71, 54, 0.7); /* partial overlay in brownish */
+  padding: 12px;
+  border-radius: 20px;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.top-holder p {
+  color: #F8F4EC;
+  margin: 2px 0;
+  font-size: 0.85rem;
+}
+
+.top-holder h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.profile {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+.image-container-main-holder {
+  background-color: #3F2F23;
+  border: 10px solid #D7CCBB;
+  width: 90vw;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-container-main-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preview-image-background {
+  width: min(85vw, 400px);
+  aspect-ratio: 16/9;
+  background-color: #3F2F23;
+  border-radius: 25px;
+  border: 10px solid #D7CCBB;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  margin-top: 15px;
+}
+
+.image-container-img {
+  width: 100%;
+  height: 100%;
+
+}
+
+  .preview-image-background.has-image {
+    border: none;
+    color: white;
+  }
+
+  
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or "cover" for zoomed-in style */
+}
+    </style>
+</head>
+<body>
+  <div class="background-holder">
+    <div class="logo-holder">
+        <div class="logo-holder2">
+            <img class="logo" src="assets/images/logo2.png" alt="town-explorer">
+            <h1>My Town Explorer</h1>
+        </div>
+    </div>
+
+    <div class="search-holder">
+        <button type="button" id="browseImage" class="browse">Upload an image</button>
+        <input type="file" id="upload" accept="image/*" onchange="showPreview();" /> 
+    </div>
+
+    <div class="content-holder2">
+        <div class="title-container">
+            <h1>Title</h1>
+            <div class="title-input-container">
+                <input placeholder="Enter a title..." class="title-input" id="titleInput">
+                <p class="title-display">0/40</p>
+            </div>
+            <div class="format-buttons-holder">
+                <button class="bold format-button">B</button>
+                <button class="italic format-button">I</button>
+                <button class="underline format-button">U</button>
+            </div>
+        </div>
+        <hr class="divider">
+        <div class="description-container">
+            <h1>Description</h1>
+            <div class="title-description-container">
+                <textarea placeholder="Write a description..." class="description-input" id="descInput"></textarea>
+                <p class="description-display">0/150</p>
+            </div>
+            <div class="format-buttons-holder">
+                <button class="bold format-button">B</button>
+                <button class="italic format-button">I</button>
+                <button class="underline format-button">U</button>
+            </div>
+        </div>
+        <hr class="divider">
+        <div class="image-container">
+            <h1>Image</h1>
+            <div class="image-container-main-holder">
+                <img class="image-container-img" style="display: none;">
+                <p class="image-indicator">No image selected</p>
+            </div>
+        </div>
+        <hr class="divider">
+        <button class="post" id="postButton">Post</button>
+        <hr class="divider">
+        <div class="wrapper">
+            <div class="preview">
+                <h1>Preview</h1>
+                <div class="preview-image-background">
+                    <div class="top-holder">
+                        <img class="profile" src="assets/images/logo2.png" alt="profile">
+                        <div>
+                            <h2 class="title">This is a preview title</h2>
+                            <p class="description">This is a preview description</p>
+                            <p class="username">@USERNAME</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+    <script>
+// --- Title counter & live update ---
+const titleInput = document.querySelector(".title-input");
+const titleDisplay = document.querySelector(".title-display");
+const titlePreview = document.querySelector(".title");
+
+titleInput.addEventListener("input", () => {
+  const limit = 40;
+  if (titleInput.value.length > limit) titleInput.value = titleInput.value.substring(0, limit);
+  titleDisplay.textContent = `${titleInput.value.length}/40`;
+  titlePreview.textContent = titleInput.value || "This is a preview title";
+});
+
+// --- Description counter & live update ---
+const descriptionInput = document.querySelector(".description-input");
+const descriptionDisplay = document.querySelector(".description-display");
+const descriptionPreview = document.querySelector(".description");
+
+descriptionInput.addEventListener("input", () => {
+  const limit = 150;
+  if (descriptionInput.value.length > limit) descriptionInput.value = descriptionInput.value.substring(0, limit);
+  descriptionDisplay.textContent = `${descriptionInput.value.length}/150`;
+  descriptionPreview.textContent = descriptionInput.value || "This is a preview description";
+});
+</script>
+
+<script>
+// --- Profile setup ---
+const profileIMG = document.querySelector(".profile");
+const usernameContainer = document.querySelector(".username");
+
+function getStoredUsername() {
+  const stored = localStorage.getItem("username");
+  if (!stored) return "Guest";
+  try { return JSON.parse(stored); } catch { return stored; }
+}
+
+function getStoredProfile() {
+  const stored = localStorage.getItem("profilePicture");
+  if (!stored) return "default";
+  try { return JSON.parse(stored); } catch { return stored; }
+}
+
+function setProfile() {
+  const profile = getStoredProfile();
+  const map = {
+    profile1: "assets/profiles/profile1.jpg",
+    profile2: "assets/profiles/profile2.jpg",
+    profile3: "assets/profiles/profile3.jpg",
+    profile4: "assets/profiles/profile4.jpg",
+    profile5: "assets/profiles/profile5.jpg",
+    profile6: "assets/profiles/profile6.jpg",
+  };
+  profileIMG.src = map[profile] || "assets/images/logo2.png";
+}
+
+function setUsername() {
+  const username = getStoredUsername();
+  usernameContainer.textContent = username ? "@" + username : "@Guest";
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  setProfile();
+  setUsername();
+});
+</script>
+
+<script>
+// --- Image preview setup ---
+document.getElementById('browseImage').onclick = () => document.getElementById('upload').click();
+
+function showPreview() {
+  const fileInput = document.getElementById("upload");
+  const file = fileInput.files[0];
+  const previewContainer = document.querySelector(".image-container-main-holder");
+  const previewImageBackground = document.querySelector(".preview-image-background");
+
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const imgTag = document.createElement("img");
+    imgTag.src = e.target.result;
+    imgTag.style.width = "85%";
+    imgTag.style.height = "85%";
+    imgTag.style.borderRadius = "15px";
+    previewContainer.innerHTML = "";
+    previewContainer.appendChild(imgTag);
+    previewImageBackground.style.backgroundImage = `url('${e.target.result}')`;
+    previewImageBackground.classList.add('has-image');
+  };
+  reader.readAsDataURL(file);
+}
+</script>
+
+<script>
+// --- Post saving to localStorage ---
+const postButton = document.getElementById('postButton');
+postButton.addEventListener('click', () => {
+  const title = document.getElementById('titleInput').value.trim();
+  const description = document.getElementById('descInput').value.trim();
+  const imageFile = document.getElementById('upload').files[0];
+  const username = localStorage.getItem("username").replaceAll('"', '') || "Guest";
+
+  if (!title || !description) {
+    alert("Please fill in both title and description.");
+    return;
+  }
+  if (!imageFile) {
+    alert("Please select an image.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const imageURL = e.target.result;
+
+    const newPost = {
+      title,
+      description,
+      username,
+      imageURL,
+      date: new Date().toLocaleString(),
+    };
+
+    let stored = localStorage.getItem("posts");
+  let posts = [];
+  try {
+    posts = stored ? JSON.parse(stored) : [];
+  } catch (err) {
+    console.warn("⚠️ Corrupted posts data found, resetting localStorage.");
+    localStorage.removeItem("posts");
+    posts = [];
+  }
+  
+    posts.push(newPost);
+    localStorage.setItem("posts", JSON.stringify(posts));
+
+    alert("Post saved successfully");
+    console.log("Saved post:", newPost);
+
+    // Reset
+    document.getElementById('titleInput').value = '';
+    document.getElementById('descInput').value = '';
+    document.getElementById('upload').value = '';
+    document.querySelector(".preview-image-background").style.backgroundImage = '';
+    document.querySelector(".preview-image-background").classList.remove('has-image');
+    document.querySelector(".image-container-main-holder").innerHTML = '<p class="image-indicator">No image selected</p>';
+    document.querySelector("h2.title").innerText = "This is a preview title"
+    document.querySelector("p.title").innerText = "This is a preview description"
+  };
+
+  reader.readAsDataURL(imageFile);
+});
+</script>
+    
+</body>
+</html>
+

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTown Explorer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <style>
+    * {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #F8F4EC; /* soft paper background */
+  color: #3F2F23; /* dark brown text */
+}
+
+h1 {
+  color: #3F2F23; /* dark brown text */
+}
+
+.background-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F8F4EC; /* updated background */
+  position: relative;
+  z-index: 1;
+}
+
+.logo-holder {
+  display: flex;
+  width: 100vw;
+  background-color: #EDE4D6;
+  z-index: 1002;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.logo-holder2 {
+  display: flex;
+  background-color: #EDE4D6; /* soft beige */
+  width: 100%;
+  border: 4px solid #D7CCBB; /* soft beige border */
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  z-index: 1002;
+}
+
+.logo-holder2 h1 {
+  font-size: 29px;
+  color: #3F2F23;
+  margin: 0;
+}
+
+.logo-background {
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+}
+
+.logo {
+  border-radius: 15px;
+  height: 85px;
+  width: 85px;
+  box-shadow: none;
+  border:#5A4736 4px  solid;
+  margin-bottom: 10px;
+}
+
+.content-holder {
+  background-color: #EDE4D6; /* soft beige */
+  width: 95vw;
+  height: 100vh;
+  margin: 20px;
+  border-radius: 7.5%;
+  border: 4px solid #D7CCBB; /* soft beige border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.content-holder2 {
+  background-color: #EDE4D6; /* soft beige */
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 4px solid #D7CCBB; /* soft beige border */
+}
+
+button {
+  border-radius: 10px;
+  height: 65px;
+  font-size: 25px;
+  font-weight: bold;
+  width: 75%;
+  background-color: #3F2F23; /* dark brown */
+  color: #F8F4EC; /* light paper */
+  border: none;
+  margin: 10px;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  gap: 15px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5A4736; /* lighter brown hover */
+}
+
+button img {
+  width: 45px;
+  height: 45px;
+}
+
+.transparent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.transparent.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.sidebar {
+  position: absolute;
+  bottom: 0;
+  left: -400px;
+  z-index: 1002;
+  background-color: #F8F4EC; /* dark brown */
+  width: 350px;
+  padding-top: 12.5%;
+  flex-direction: column;
+  align-items: center;
+  border-right: 4px solid #5A4736; /* lighter brown border */
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  height: calc(100vh - 130px);
+  display: flex;
+  pointer-events: none;
+}
+
+.sidebar.active {
+  left: 0;
+  pointer-events: auto;
+}
+
+.profile-holder {
+  background-color: #EDE4D6; /* soft beige */
+  width: 90%;
+  margin-top: 20px;
+  padding: 12.5px;
+  border-radius: 15px;
+  border: 4px solid #D7CCBB; /* soft beige border */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-img {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 10px solid #5A4736;
+}
+
+.sidebar p {
+  color: #3F2F23; /* dark brown */
+  margin: 5px;
+  font-size: larger;
+}
+
+.button-holder {
+  background-color: #EDE4D6; /* soft beige */
+  border-top: 4px solid #D7CCBB; /* soft beige border */
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-holder button {
+  width: 85%;
+  gap: 20px;
+  background-color: #3F2F23; /* dark brown */
+  font-size: 25px;
+}
+
+.divider {
+  width: 100%;
+  border: 2px solid #D7CCBB; /* soft beige */
+}
+
+#logout-button {
+  background-color: #870E0E; /* dark red */
+}
+
+#map {
+  border-radius: 7.5%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.leaflet-control-attribution {
+  font-size: 5px;
+  opacity: 0.1;
+}
+.logo-holder2 {
+  position: relative;
+  z-index: 1003;
+  pointer-events: auto;
+}
+
+.transparent {
+  pointer-events: none;
+}
+.sidebar {
+  pointer-events: auto;
+}
+  </style>
+</head>
+<body>
+  <div class="transparent">
+    <div class="sidebar">
+      <div class="profile-holder">
+        <img class="profile-img" src="assets/images/logo2.svg" alt="town-explorer">
+        <p class="username-holder">Hello there, USERNAME!</p>
+      </div>
+      <div class="button-holder">
+        <button onclick="rewards()"><img src="assets/icons/medal.svg">Rewards</button>
+        <button onclick="profile()"><img src="assets/icons/profile.svg">Profile</button>
+        <button onclick="friend()"><img src="assets/icons/friends.svg">Friends</button>
+        <hr class="divider">
+        <button id="logout-button" onclick="logout()"><img src="assets/icons/logout.svg">Logout..</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="background-holder">
+    <div class="logo-holder">
+      <div class="logo-holder2">
+        <button class="logo-background" onclick="toggleSidebar()">
+          <img class="logo" src="assets/images/logo2.png" alt="town-explorer">
+        </button>
+        <h1>My Town Explorer</h1>
+      </div>
+    </div>
+
+    <div class="content-holder">
+        <div id="map"></div>
+    </div>
+
+    <div class="content-holder2">
+      <button onclick="feed()"><img src="assets/icons/feed.svg" alt="e">Feed</button>
+      <button onclick="assistant()"><img src="assets/icons/assistant.svg" alt="e">AI Assistant</button>
+      <button class="take-photo" onclick="takephoto()"><img src="assets/icons/takeaphoto.svg" alt="e"><p>Take Photo</p></button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.querySelector(".transparent");
+    const usernameContainer = document.querySelector(".username-holder");
+    const profileIMG = document.querySelector(".profile-img")
+
+    function toggleSidebar() {
+      const active = sidebar.classList.toggle("active");
+      overlay.classList.toggle("active", active);
+    }
+
+    overlay.addEventListener("click", e => {
+      if (e.target === overlay) {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    });
+
+    function getStoredUsername() {
+      const stored = localStorage.getItem("username");
+        try { 
+            return JSON.parse(stored) || stored; 
+        } 
+        catch { 
+            return stored; 
+        }
+    }
+
+    function getStoredProfile() {
+        const stored = localStorage.getItem("profilePicture");
+        try { 
+            return JSON.parse(stored) || stored; 
+        } 
+        catch { 
+            return stored; 
+        }
+    }
+
+    function setUsername() {
+      const username = getStoredUsername();
+      usernameContainer.textContent = "Hello there, " + username ? "Hello there, " + username.charAt(0).toUpperCase() + username.slice(1) + "!": "Guest";
+    }
+
+    function setProfile() {
+        const profile = getStoredProfile();
+        let profileToSet = '';
+
+        if (profile === "profile1") {
+            profileToSet = "assets/profiles/profile1.jpg";
+        }
+        else if (profile === "profile2") {
+            profileToSet = "assets/profiles/profile2.jpg";
+        }
+        else if (profile === "profile3") {
+            profileToSet = "assets/profiles/profile3.jpg";
+        }
+        else if (profile === "profile4") {
+            profileToSet = "assets/profiles/profile4.jpg";
+        }
+        else if (profile === "profile5") {
+            profileToSet = "assets/profiles/profile5.jpg";
+        }
+        else if (profile === "profile6") {
+            profileToSet = "assets/profiles/profile6.jpg";
+        }
+        else {
+            profileToSet = "assets/images/logo2.png"
+        }
+
+        profileIMG.src = profileToSet;
+    } 
+
+    window.addEventListener("DOMContentLoaded", setProfile);
+    window.addEventListener("DOMContentLoaded", setUsername);
+
+    function logout(){ 
+        localStorage.setItem("username", "")
+        localStorage.setItem("profilePicture", "")
+        window.location.href="entrypage.html"; 
+    }
+    function takephoto(){ window.location.href="upload.html"; }
+    function feed(){ window.location.href="feed.html"; }
+    function assistant(){ alert("Coming soon"); }
+    function profile(){ window.location.href="profile.html"; }
+    function friend(){ window.location.href="friends.html"; }
+    function rewards(){ alert("Coming soon"); }
+  </script>
+  <script>
+        function initMap() {
+        const mapContainer = document.getElementById("map");
+        if (!mapContainer) return;
+
+        // Create map
+        const map = L.map("map", {
+            zoomControl: true,
+            attributionControl: true
+        });
+
+        // Add tiles
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: "&copy; OpenStreetMap",
+            prefix: false
+        }).addTo(map);
+
+        // Default view (if no location found)
+        const defaultCoords = [20.5937, 78.9629]; // India center
+        map.setView(defaultCoords, 5);
+
+        // Try to locate user (only on HTTPS or localhost)
+        if (navigator.geolocation && (location.protocol === "https:" || location.hostname === "localhost")) {
+            navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const lat = pos.coords.latitude;
+                const lng = pos.coords.longitude;
+                const accuracy = pos.coords.accuracy;
+
+                map.setView([lat, lng], 14, { animate: true });
+                L.marker([lat, lng])
+                .addTo(map)
+                .bindPopup("You are here.")
+                .openPopup();
+
+                L.circle([lat, lng], { radius: accuracy / 2 }).addTo(map);
+            },
+            (err) => {
+                console.warn("Location error:", err.message);
+                alert("Couldn't access your location. Showing default view.");
+                map.setView(defaultCoords, 5);
+            },
+            { enableHighAccuracy: true, timeout: 20000 }
+            );
+        } else {
+            map.setView(defaultCoords, 5);
+        }
+
+        // Handle resizing glitches
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 500);
+
+        window.addEventListener("resize", () => map.invalidateSize());
+        }
+
+        window.addEventListener("DOMContentLoaded", initMap);
+  </script>
+</body>
+</html>
